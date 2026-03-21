@@ -23,7 +23,7 @@ export default function ProduktPromotionSlide({
 }: ProduktPromotionSlideProps) {
   return (
     <Slide
-      titel="Produkt Promotion"
+      titel="Produkt Ankündigungen"
       untertitel={data.titel}
       firmenLogo={firmenLogo}
       baeckereiLogo={baeckereiLogo}

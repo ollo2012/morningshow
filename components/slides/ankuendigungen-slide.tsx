@@ -21,7 +21,7 @@ export default function AnkuendigungenSlide({
 }: AnkuendigungenSlideProps) {
   return (
     <Slide
-      titel="Ankündigungen"
+      titel="Wichtige Hinweise"
       untertitel="Wichtige Infos für das Team"
       firmenLogo={firmenLogo}
       baeckereiLogo={baeckereiLogo}

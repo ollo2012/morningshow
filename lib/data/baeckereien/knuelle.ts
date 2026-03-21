@@ -2,34 +2,15 @@ import type { ProduktPromotionData } from "@/lib/data/produkt-promotion";
 import type { AnkuendigungenData } from "@/lib/data/ankuendigungen";
 
 export const produktPromotion: ProduktPromotionData = {
-  titel: "Unsere Highlights diese Woche",
+  titel: "Neue Produkte",
   produkte: [
     {
-      name: "Knülle Landbrot",
-      beschreibung:
-        "Unser Klassiker mit extra langer Teigführung – jetzt als Saisonedition mit Walnüssen.",
-      preis: "4,90 €",
-      neu: true,
-      bild: "/images/produkte/landbrot.svg",
-      allergene: ["gluten", "nüsse"],
-    },
-    {
-      name: 'Buttercroissant „Goldstück"',
-      beschreibung:
-        "72 Schichten feinste Butter – knusprig, luftig, unwiderstehlich.",
-      preis: "2,20 €",
+      name: "Rübli Kuchen",
+      // Tonalität: Knapp und einladendes "Du" gemäß externer Strategie
+      beschreibung: "Probier mal unseren leckeren Karottenkuchen mit feinem Frosting. Handwerk, das du schmeckst!",
+      preis: "4,90€/Stück",
       neu: true,
       bild: "/images/produkte/buttercroissant.svg",
-      allergene: ["gluten", "milch", "ei"],
-    },
-    {
-      name: "Dinkel-Vollkorn Brötchen",
-      beschreibung:
-        "Knusprig und nussig – jetzt mit verbesserter Rezeptur und längerer Frischhaltung.",
-      preis: "0,95 €",
-      neu: false,
-      bild: "/images/produkte/dinkel-vollkorn.svg",
-      allergene: ["gluten"],
     },
   ],
 };
@@ -37,25 +18,10 @@ export const produktPromotion: ProduktPromotionData = {
 export const ankuendigungen: AnkuendigungenData = {
   ankuendigungen: [
     {
-      titel: "Betriebsversammlung am Freitag",
-      inhalt:
-        "Am 28.03. findet um 14:00 Uhr die vierteljährliche Betriebsversammlung im Pausenraum statt. Bitte alle erscheinen!",
-      datum: "2026-03-28",
+      titel: "Nächste Woche ist Ostern",
+      inhalt: "Liebes Team, denkt bitte daran, unsere Kunden aktiv auf das bevorstehende Osterfest hinzuweisen.",
+      datum: "2026-04-08",
       wichtig: true,
-    },
-    {
-      titel: "Neue Hygienevorschriften",
-      inhalt:
-        "Ab nächster Woche gelten aktualisierte Hygienevorschriften. Die Unterlagen liegen im Büro aus.",
-      datum: "2026-03-24",
-      wichtig: true,
-    },
-    {
-      titel: "Sommerfest-Planung",
-      inhalt:
-        "Wir planen unser jährliches Sommerfest! Ideen und Vorschläge bitte bis 15.04. an Monika.",
-      datum: "2026-06-20",
-      wichtig: false,
     },
   ],
 };
