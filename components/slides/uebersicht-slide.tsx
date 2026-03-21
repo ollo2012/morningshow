@@ -43,7 +43,7 @@ export default function UebersichtSlide({
           <div className="space-y-2">
             {produktPromotion.produkte.map((produkt, i) => (
               <Link key={i} href={`/${baeckereiSlug}/produkt/${i}`}>
-                <Card className="cursor-pointer transition-colors hover:bg-accent hover:text-accent-foreground">
+                <Card className="cursor-pointer transition-colors hover:bg-accent hover:text-accent-foreground mb-4">
                   <CardHeader className="py-3">
                     <CardTitle className="flex items-center justify-between gap-2 text-base">
                       <span>{produkt.name}</span>
@@ -66,7 +66,7 @@ export default function UebersichtSlide({
 
         {/* Ankündigungen */}
         <section className="flex flex-col gap-3">
-          <h3 className="text-sm font-semibold uppercase tracking-wider text-muted-foreground">
+          <h3 className="text-sm font-semibold uppercase tracking-wider text-muted-foreground mb-4">
             Ankündigungen
           </h3>
           <div className="space-y-2">
