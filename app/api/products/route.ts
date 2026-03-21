@@ -32,6 +32,12 @@ export async function GET() {
 
 export async function POST(req: Request) {
   const session = await getServerSession(authOptions);
+  const apiKey = req.headers.get("x-api-key");
+
+  // Allow if EITHER session exists OR valid API Key is provided
+  if (!session && apiKey !== process.env.SYNC_TOKEN) {
+    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  }
   
   if (!session) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
