@@ -2,37 +2,37 @@ import type { ProduktPromotionData } from "@/lib/data/produkt-promotion";
 import type { AnkuendigungenData } from "@/lib/data/ankuendigungen";
 
 export const produktPromotion: ProduktPromotionData = {
-  titel: "Jazzback Neuheiten & Specials",
+  titel: "Fresh Vibes in der Theke – Unsere Highlights",
   produkte: [
     {
-      name: "Blueberry-Cheesecake Swirl",
+      name: "Rübli Kuchen",
       beschreibung:
-        "Cremiger Cheesecake trifft auf saftigen Blaubeerstrudel – unser neues Signature-Stück.",
-      preis: "3,80 €",
+        "Unser neuer Star am Backhimmel! Saftiger Karottenkuchen mit fluffigem Frosting – der perfekte Begleiter für den entspannten Sonntagskaffee oder das Picknick im Park.",
+      preis: "4,90 € / Stück",
       status: "neu" as const,
-      allergene: ["gluten", "milch", "ei"],
+      allergene: ["gluten", "ei", "milch", "nüsse"],
+      naehrwerte: {
+        portionsgroesse: "100 g",
+        kalorien: "342 kcal",
+        kohlenhydrate: "48 g",
+        davonZucker: "28 g",
+        fett: "14 g",
+        davonGesaettigt: "5 g",
+        eiweiss: "5 g",
+        salz: "0,4 g",
+      },
     },
     {
-      name: "Sourdough Jazz Loaf",
+      name: "Lemon Tarte",
       beschreibung:
-        "48-Stunden Sauerteig mit geröstetem Sesam und Meersalzkruste.",
-      preis: "5,50 €",
-      status: "neu" as const,
-      allergene: ["gluten", "sesam"],
+        "Kurze Pause für unsere Lemon Tarte. Sie verabschiedet sich in den Winterschlaf, ist aber pünktlich zum Sommer-Release wieder für euch am Start!",
+      status: "eingestellt" as const,
     },
     {
-      name: "Espresso-Walnuss Brownie",
+      name: "Buttercroissant",
       beschreibung:
-        "Intensiver Kakao mit echtem Espresso – der perfekte Nachmittagskick.",
-      preis: "2,90 €",
-      allergene: ["gluten", "milch", "ei", "nüsse"],
-    },
-    {
-      name: "Zimt-Kardamom Schnecke",
-      beschreibung:
-        "Fluffiger Hefeteig mit orientalischer Gewürznote – warm am besten!",
-      preis: "2,50 €",
-      allergene: ["gluten", "milch", "ei"],
+        "Kleines Upgrade in der Performance: Wir backen unsere Croissants jetzt bei 165°C für den extra knusprigen Gold-Vibe. Handwerk, das man schmeckt!",
+      status: "überarbeitet" as const,
     },
   ],
 };
@@ -40,28 +40,28 @@ export const produktPromotion: ProduktPromotionData = {
 export const ankuendigungen: AnkuendigungenData = {
   ankuendigungen: [
     {
-      titel: "Pop-Up Event am Samstag",
+      titel: "Oster-Countdown läuft! 🐰",
       inhalt:
-        "Diesen Samstag, 22.03., veranstalten wir ein Pop-Up im Stadtpark. Wer beim Aufbau helfen kann, bitte bei Tom melden!",
-      datum: "2026-03-22",
-      wichtig: true,
-      icon: "PartyPopper",
-    },
-    {
-      titel: "Neue Schichtpläne ab April",
-      inhalt:
-        "Die neuen Schichtpläne für April hängen ab Montag aus. Tauschwünsche bitte bis 28.03. einreichen.",
-      datum: "2026-03-23",
+        "Hey Team, nächste Woche ist schon Ostern! Schnappt euch eure gute Laune und weist unsere Kund:innen aktiv darauf hin, damit niemand ohne Feiertags-Leckereien dasteht.",
+      datum: "2026-04-08",
       wichtig: false,
       icon: "CalendarDays",
     },
     {
-      titel: "Instagram-Schulung",
+      titel: "Brezel-Ausfall heute 🥨",
       inhalt:
-        "Am 02.04. gibt es eine kurze Schulung zum Thema Food-Fotografie für unseren Instagram-Kanal. Alle sind willkommen!",
-      datum: "2026-04-02",
-      wichtig: false,
-      icon: "Camera",
+        "Wichtige Info für die Backstage: Die Brezeln sind leider etwas zu heiß geworden (verbrannt) und heute nicht lieferbar. Bitte entschuldigt das charmant bei der Kundschaft!",
+      datum: "2026-04-08",
+      wichtig: true,
+      icon: "TriangleAlert",
+    },
+    {
+      titel: "Gute Besserung, Laura! 💐",
+      inhalt:
+        "Unsere Kollegin Laura Weber hat es leider erwischt. Sie fällt bis Ende der Woche aus. Lasst uns im Team zusammenrücken und ihr eine schnelle Genesung wünschen!",
+      datum: "2026-04-08",
+      wichtig: true,
+      icon: "Heart",
     },
   ],
 };

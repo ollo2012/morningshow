@@ -2,12 +2,12 @@ import type { ProduktPromotionData } from "@/lib/data/produkt-promotion";
 import type { AnkuendigungenData } from "@/lib/data/ankuendigungen";
 
 export const produktPromotion: ProduktPromotionData = {
-  titel: "Neue Produkte",
+  titel: "Unsere Highlights diese Woche",
   produkte: [
     {
       name: "Rübli Kuchen",
-      // Tonalität: Knappes und einladendes "Du" gemäß externer Strategie
-      beschreibung: "Probier mal unseren leckeren Karottenkuchen mit feinem Frosting. Handwerk, das du schmeckst!",
+      // Tonalität: Einladend und handwerklich fokussiert
+      beschreibung: "Probier mal unseren leckeren Karottenkuchen mit feinem Frosting. Handwerk, das du schmeckst! Passt perfekt zum Sonntagskaffee oder Picknick.",
       preis: "4,90 € / Stück",
       status: "neu" as const,
       allergene: ["gluten", "ei", "milch", "nüsse"],
@@ -22,6 +22,17 @@ export const produktPromotion: ProduktPromotionData = {
         salz: "0,4 g",
       },
     },
+    {
+      name: "Lemon Tarte",
+      // Status 'eingestellt' wird über die Beschreibung kommuniziert
+      beschreibung: "Kurze Info für euch: Die Lemon Tarte macht Pause und kommt im Sommer wieder in die Theke.",
+      status: "eingestellt" as const,
+    },
+    {
+      name: "Croissant",
+      beschreibung: "Unsere Croissants backen wir jetzt bei 165°C – für die perfekte Goldkruste, die unsere Kunden so lieben.",
+      status: "überarbeitet" as const,
+    },
   ],
 };
 
@@ -29,17 +40,24 @@ export const ankuendigungen: AnkuendigungenData = {
   ankuendigungen: [
     {
       titel: "Nächste Woche ist Ostern",
-      inhalt: "Liebes Team, denkt bitte daran, unsere Kunden aktiv auf das bevorstehende Osterfest hinzuweisen.",
+      // Fokus auf Mitarbeitende: Motivation zur aktiven Kundenansprache
+      inhalt: "Liebes Team, denkt bitte daran, unsere Kunden aktiv auf das Osterfest hinzuweisen. Lasst uns gemeinsam für volle Körbchen sorgen!",
       datum: "2026-04-08",
-      wichtig: true,
+      wichtig: false,
       bild: "/images/ankuendigungen/ostern.svg",
     },
     {
-      titel: "Brezeln werden nicht geliefert!",
-      inhalt: "Wichtige Info für den Verkauf: Die Brezeln sind leider verbrannt und stehen heute nicht zur Verfügung.",
+      titel: "Brezeln nicht lieferbar",
+      inhalt: "Wichtige Info für den Verkauf: Die Brezeln sind heute leider verbrannt. Bitte entschuldigt das charmant bei der Kundschaft!",
       datum: "2026-03-21",
       wichtig: true,
       icon: "TriangleAlert",
+    },
+    {
+      titel: "Gute Besserung, Laura!",
+      inhalt: "Unsere Kollegin Laura Weber ist leider bis Ende der Woche krank. Wir wünschen gute Besserung und rücken im Team zusammen!",
+      datum: "2026-04-08",
+      wichtig: true,
     },
   ],
 };
