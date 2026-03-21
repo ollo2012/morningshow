@@ -3,7 +3,6 @@
 import { useSession } from "next-auth/react";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import LogoutButton from "@/app/components/LogoutButton";
 
 interface Announcement {
   id: string;
@@ -70,7 +69,6 @@ export default function AnnouncementsPage() {
         <header>
           <h1 className="text-3xl font-bold text-zinc-900 dark:text-zinc-50">Announcements</h1>
           <p className="text-zinc-600 dark:text-zinc-400">Welcome back, {session.user?.name}</p>
-          <LogoutButton />
         </header>
 
         {/* Form to add new announcements */}

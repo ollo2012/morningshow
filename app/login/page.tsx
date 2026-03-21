@@ -24,7 +24,7 @@ export default function LoginPage() {
     if (result?.error) {
       setError("Invalid username or password from auth.json");
     } else {
-      router.push("/"); // Redirect to home on success
+      router.push("/admin");
       router.refresh();
     }
   };
