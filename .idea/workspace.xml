@@ -4,8 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="18e73f8f-3569-404e-8fdb-9d5935600940" name="Changes" comment="remove custom coloring">
+    <list default="true" id="18e73f8f-3569-404e-8fdb-9d5935600940" name="Changes" comment="remove motivation slide">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/globals.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/slideshow.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/slideshow.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -158,7 +161,15 @@
       <option name="project" value="LOCAL" />
       <updated>1774106691045</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="remove motivation slide">
+      <option name="closed" value="true" />
+      <created>1774107890807</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1774107890807</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -175,7 +186,8 @@
     <MESSAGE value="add product images" />
     <MESSAGE value="adding allgernes to the product" />
     <MESSAGE value="remove custom coloring" />
-    <option name="LAST_COMMIT_MESSAGE" value="remove custom coloring" />
+    <MESSAGE value="remove motivation slide" />
+    <option name="LAST_COMMIT_MESSAGE" value="remove motivation slide" />
   </component>
   <component name="github-copilot-workspace">
     <instructionFileLocations>

@@ -29,12 +29,12 @@ export default function Slide({
     <section
       id={id}
       className={cn(
-        "flex h-full w-full shrink-0 snap-center bg-background p-3 sm:p-5 md:p-8",
+        "flex h-full w-full shrink-0 snap-center bg-background px-3 py-1 sm:px-5 sm:py-1 md:px-8 md:py-1",
         className
       )}
     >
       {/* Rounded box wrapping the entire slide content */}
-      <div className="flex flex-1 flex-col overflow-hidden rounded-2xl bg-card p-4 ring-1 ring-border sm:rounded-3xl sm:p-6 md:p-8">
+      <div className="flex flex-1 flex-col overflow-hidden rounded-2xl bg-card px-4 py-3 ring-1 ring-border sm:rounded-3xl sm:px-6 sm:py-4 md:px-8 md:py-5">
         {/* Header row: title left, logos right */}
         <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
           <div className="space-y-1">
@@ -69,7 +69,7 @@ export default function Slide({
         </div>
 
         {/* Content area */}
-        <div className={cn("mt-4 min-h-0 flex-1 overflow-y-auto px-1 pt-1 sm:mt-6 sm:px-2 sm:pt-2 md:mt-8", contentClassName)}>
+        <div className={cn("mt-3 min-h-0 flex-1 overflow-y-auto px-1 pt-1 sm:mt-4 sm:px-2 sm:pt-2 md:mt-5", contentClassName)}>
           {children}
         </div>
       </div>

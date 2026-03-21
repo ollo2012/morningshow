@@ -69,7 +69,7 @@ export default function Slideshow({
   return (
     <div className="relative flex h-screen flex-col">
       {/* Progress bar */}
-      <div className="px-4 py-2 sm:px-6 md:px-10">
+      <div className="px-4 pt-2 pb-1 sm:px-6 md:px-10">
         <Progress value={fortschritt} className="h-2" />
       </div>
 
@@ -77,7 +77,7 @@ export default function Slideshow({
       <div
         ref={containerRef}
         className={cn(
-          "flex flex-1 snap-mandatory overflow-hidden",
+          "scrollbar-hide flex flex-1 snap-mandatory overflow-hidden",
           isHorizontal
             ? "flex-row snap-x overflow-x-auto"
             : "flex-col snap-y overflow-y-auto",
@@ -88,18 +88,18 @@ export default function Slideshow({
       </div>
 
       {/* Bottom nav */}
-      <nav className="flex items-center justify-center gap-6 px-4 py-3">
+      <nav className="flex items-center justify-center gap-6 px-4 pb-2 pt-1">
         <button
           onClick={() => scrollToSlide(aktuelleSlide - 1)}
           disabled={aktuelleSlide === 0}
-          className="rounded-full bg-foreground p-2 text-background transition-opacity hover:opacity-80 disabled:opacity-20"
+          className="rounded-full bg-muted-foreground/30 p-2 text-background transition-opacity hover:opacity-80 disabled:opacity-10"
         >
           <ArrowLeft className="h-5 w-5" />
         </button>
         <button
           onClick={() => scrollToSlide(aktuelleSlide + 1)}
           disabled={aktuelleSlide === slideCount - 1}
-          className="rounded-full bg-foreground p-2 text-background transition-opacity hover:opacity-80 disabled:opacity-20"
+          className="rounded-full bg-muted-foreground/30 p-2 text-background transition-opacity hover:opacity-80 disabled:opacity-10"
         >
           <ArrowRight className="h-5 w-5" />
         </button>
