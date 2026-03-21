@@ -1,4 +1,3 @@
-import type { MotivationData } from "@/lib/data/motivation";
 import type { ProduktPromotionData } from "@/lib/data/produkt-promotion";
 import type { AnkuendigungenData } from "@/lib/data/ankuendigungen";
 
@@ -8,7 +7,6 @@ import * as jazzback from "./jazzback";
 export interface BaeckereiDaten {
   name: string;
   logo: string;
-  motivation: MotivationData;
   produktPromotion: ProduktPromotionData;
   ankuendigungen: AnkuendigungenData;
 }

@@ -1,14 +1,5 @@
-import type { MotivationData } from "@/lib/data/motivation";
 import type { ProduktPromotionData } from "@/lib/data/produkt-promotion";
 import type { AnkuendigungenData } from "@/lib/data/ankuendigungen";
-
-export const motivation: MotivationData = {
-  spruch:
-    "Jeder Tag ist eine neue Chance, etwas Großartiges zu backen – und zu leben!",
-  autor: "Bäckermeister Heinrich Knülle",
-  tagesTipp:
-    "Nimm dir heute 5 Minuten Zeit, um einem Kollegen ein ehrliches Kompliment zu machen. Gute Stimmung ist wie guter Sauerteig – sie braucht Pflege, aber sie trägt das ganze Team.",
-};
 
 export const produktPromotion: ProduktPromotionData = {
   titel: "Unsere Highlights diese Woche",

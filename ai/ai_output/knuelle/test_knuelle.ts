@@ -1,13 +1,5 @@
-import type { MotivationData } from "@/lib/data/motivation";
 import type { ProduktPromotionData } from "@/lib/data/produkt-promotion";
 import type { AnkuendigungenData } from "@/lib/data/ankuendigungen";
-
-export const motivation: MotivationData = {
-  spruch: "Heute ist ein toller Tag",
-  autor: "Der Chef",
-  // Tonalität: Regionaler Dialekt für interne Nähe gemäß interner Strategie
-  tagesTipp: "Dä Kaffee he is echt lecker – gönnt euch mal 'ne kurze Pause!",
-};
 
 export const produktPromotion: ProduktPromotionData = {
   titel: "Neue Produkte",

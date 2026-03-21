@@ -13,7 +13,7 @@ import { Badge } from "@/components/ui/badge";
 import { AllergenBadges } from "@/components/allergen-badge";
 
 export function generateStaticParams() {
-  const slugs = ["motivation", "produkt-promotion", "ankuendigungen"];
+  const slugs = ["produkt-promotion", "ankuendigungen"];
   return Object.keys(baeckereien).flatMap((baeckerei) =>
     slugs.map((slide) => ({ baeckerei, slide }))
   );
@@ -35,34 +35,7 @@ export default async function SlidePage({
   let titel = "";
   let content: React.ReactNode = null;
 
-  if (slide === "motivation") {
-    titel = "Motivation";
-    const { spruch, autor, tagesTipp } = daten.motivation;
-    content = (
-      <div className="space-y-6">
-        <Card>
-          <CardHeader>
-            <CardTitle className="text-lg text-muted-foreground">Tagesspruch</CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-3">
-            <blockquote className="border-l-4 border-primary pl-6 text-2xl italic leading-relaxed md:text-3xl">
-              &ldquo;{spruch}&rdquo;
-            </blockquote>
-            <p className="pl-6 text-base font-medium">— {autor}</p>
-          </CardContent>
-        </Card>
-
-        <Card>
-          <CardHeader>
-            <CardTitle>Tages-Tipp</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <p className="text-base leading-relaxed text-muted-foreground">{tagesTipp}</p>
-          </CardContent>
-        </Card>
-      </div>
-    );
-  } else if (slide === "produkt-promotion") {
+  if (slide === "produkt-promotion") {
     titel = "Produkt Promotion";
     const { titel: promotionTitel, produkte } = daten.produktPromotion;
     content = (

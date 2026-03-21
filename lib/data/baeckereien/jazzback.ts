@@ -1,14 +1,5 @@
-import type { MotivationData } from "@/lib/data/motivation";
 import type { ProduktPromotionData } from "@/lib/data/produkt-promotion";
 import type { AnkuendigungenData } from "@/lib/data/ankuendigungen";
-
-export const motivation: MotivationData = {
-  spruch:
-    "Backen ist Jazz – Improvisation mit den besten Zutaten ergibt die süßeste Melodie.",
-  autor: "Gründerin Lisa Jazzback",
-  tagesTipp:
-    "Probiere heute eine neue Technik beim Formen aus. Kreativität hält uns lebendig – und unsere Kunden kommen genau deswegen zu uns!",
-};
 
 export const produktPromotion: ProduktPromotionData = {
   titel: "Jazzback Neuheiten & Specials",
