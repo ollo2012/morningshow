@@ -2,13 +2,14 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import LogoutButton from "@/app/admin/components/LogoutButton";
+import { signOut } from "next-auth/react";
 
 export function AdminNav() {
   const pathname = usePathname();
 
   const navItems = [
     { name: "Announcements", href: "/admin/announcements" },
+    { name: "Products", href: "/admin/products" },
   ];
 
   return (
@@ -30,7 +31,12 @@ export function AdminNav() {
         );
       })}
       <div className="mt-4">
-        <LogoutButton />
+          <button
+            onClick={() => signOut({ callbackUrl: "/login" })}
+            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] px-4 py-2 text-sm font-medium transition-colors hover:bg-red-50 hover:text-red-600 dark:hover:bg-red-900/20"
+          >
+            Log Out
+          </button>
       </div>
     </nav>
   );

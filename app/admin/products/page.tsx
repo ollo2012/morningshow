@@ -4,7 +4,7 @@ import { useSession } from "next-auth/react";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 
-interface Announcement {
+interface Products {
   id: string;
   title: string;
   text: string;
@@ -12,11 +12,11 @@ interface Announcement {
   author: string;
 }
 
-export default function AnnouncementsPage() {
+export default function ProductsPage() {
   const { data: session, status } = useSession();
   const router = useRouter();
   
-  const [announcements, setAnnouncements] = useState<Announcement[]>([]);
+  const [products, setProducts] = useState<Products[]>([]);
   const [title, setTitle] = useState("");
   const [text, setText] = useState("");
   const [loading, setLoading] = useState(false);
@@ -26,14 +26,14 @@ export default function AnnouncementsPage() {
     if (status === "unauthenticated") {
       router.push("/login");
     }
-    fetchAnnouncements();
+    fetchProducts();
   }, [status, router]);
 
-  const fetchAnnouncements = async () => {
-    const res = await fetch("/api/announcements");
+  const fetchProducts = async () => {
+    const res = await fetch("/api/products");
     if (res.ok) {
       const data = await res.json();
-      setAnnouncements(data);
+      setProducts(data);
     }
   };
 
@@ -41,7 +41,7 @@ export default function AnnouncementsPage() {
     e.preventDefault();
     setLoading(true);
 
-    const res = await fetch("/api/announcements", {
+    const res = await fetch("/api/products", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -54,7 +54,7 @@ export default function AnnouncementsPage() {
     if (res.ok) {
       setTitle("");
       setText("");
-      fetchAnnouncements();
+      fetchProducts();
     }
     setLoading(false);
   };
@@ -63,12 +63,12 @@ export default function AnnouncementsPage() {
     setDeletingId(id);
     
     try {
-      const res = await fetch(`/api/announcements?id=${id}`, {
+      const res = await fetch(`/api/products?id=${id}`, {
         method: "DELETE",
       });
 
       if (res.ok) {
-        setAnnouncements(announcements.filter((item) => item.id !== id));
+        setProducts(products.filter((item) => item.id !== id));
       } else {
         alert("Fehler beim Löschen");
       }
@@ -87,12 +87,12 @@ export default function AnnouncementsPage() {
     <div className="flex-1 bg-zinc-50 dark:bg-black p-8">
       <div className="max-w-3xl mx-auto space-y-12">
         <header>
-          <h1 className="text-3xl font-bold text-zinc-900 dark:text-zinc-50">Announcements</h1>
+          <h1 className="text-3xl font-bold text-zinc-900 dark:text-zinc-50">Products</h1>
           <p className="text-zinc-600 dark:text-zinc-400">Willkommen zurück, {session.user?.name}</p>
         </header>
 
         <section className="bg-white dark:bg-zinc-900 p-6 rounded-xl border border-zinc-200 dark:border-zinc-800 shadow-sm">
-          <h2 className="text-xl font-semibold mb-4 text-zinc-900 dark:text-zinc-50">Neue Ankündigung posten</h2>
+          <h2 className="text-xl font-semibold mb-4 text-zinc-900 dark:text-zinc-50">Neues Produkt posten</h2>
           <form onSubmit={handleSubmit} className="space-y-4">
             <input
               type="text"
@@ -121,11 +121,11 @@ export default function AnnouncementsPage() {
         </section>
 
         <section className="space-y-6">
-          <h2 className="text-xl font-semibold text-zinc-900 dark:text-zinc-50">Aktuelle Updates</h2>
-          {announcements.length === 0 ? (
-            <p className="text-zinc-500">Noch keine Ankündigungen.</p>
+          <h2 className="text-xl font-semibold text-zinc-900 dark:text-zinc-50">Aktuelle Produkte</h2>
+          {products.length === 0 ? (
+            <p className="text-zinc-500">Noch keine Produkte.</p>
           ) : (
-            announcements.slice().reverse().map((item) => (
+            products.slice().reverse().map((item) => (
               <div key={item.id} className="group relative p-6 bg-white dark:bg-zinc-900 rounded-xl border border-zinc-200 dark:border-zinc-800">
                 <div className="flex justify-between items-start mb-2">
                   <h3 className="text-lg font-bold text-zinc-900 dark:text-zinc-50">{item.title}</h3>

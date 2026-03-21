@@ -4,7 +4,7 @@ import { authOptions } from "@/lib/auth";
 import fs from "fs";
 import path from "path";
 
-const filePath = path.join(process.cwd(), "data/announcements.json");
+const filePath = path.join(process.cwd(), "data/products.json");
 
 // Helper to ensure directory and file exist
 const ensureFile = () => {
@@ -22,10 +22,10 @@ export async function GET() {
   try {
     ensureFile();
     const fileData = fs.readFileSync(filePath, "utf8");
-    const announcements = JSON.parse(fileData);
-    return NextResponse.json(announcements);
+    const products = JSON.parse(fileData);
+    return NextResponse.json(products);
   } catch (error) {
-    console.error("Failed to read announcements:", error);
+    console.error("Failed to read products:", error);
     return NextResponse.json([], { status: 500 });
   }
 }
@@ -41,7 +41,7 @@ export async function POST(req: Request) {
     const { title, text, date } = await req.json();
     ensureFile();
 
-    const announcements = JSON.parse(fs.readFileSync(filePath, "utf8"));
+    const products = JSON.parse(fs.readFileSync(filePath, "utf8"));
     
     const newEntry = {
       id: Date.now().toString(),
@@ -51,12 +51,12 @@ export async function POST(req: Request) {
       author: session.user?.name || "Unknown"
     };
 
-    announcements.push(newEntry);
-    fs.writeFileSync(filePath, JSON.stringify(announcements, null, 2));
+    products.push(newEntry);
+    fs.writeFileSync(filePath, JSON.stringify(products, null, 2));
 
     return NextResponse.json(newEntry);
   } catch (error) {
-    console.error("Failed to save announcement:", error);
+    console.error("Failed to save product:", error);
     return NextResponse.json({ error: "Save failed" }, { status: 500 });
   }
 }
@@ -78,20 +78,20 @@ export async function DELETE(req: Request) {
 
     ensureFile();
     const fileData = fs.readFileSync(filePath, "utf8");
-    let announcements = JSON.parse(fileData);
+    let products = JSON.parse(fileData);
 
-    const exists = announcements.find((item: any) => item.id === id);
+    const exists = products.find((item: any) => item.id === id);
     if (!exists) {
-      return NextResponse.json({ error: "Announcement not found" }, { status: 404 });
+      return NextResponse.json({ error: "Product not found" }, { status: 404 });
     }
 
-    const filteredAnnouncements = announcements.filter((item: any) => item.id !== id);
+    const filteredProducts = products.filter((item: any) => item.id !== id);
 
-    fs.writeFileSync(filePath, JSON.stringify(filteredAnnouncements, null, 2));
+    fs.writeFileSync(filePath, JSON.stringify(filteredProducts, null, 2));
 
-    return NextResponse.json({ message: "Announcement deleted" });
+    return NextResponse.json({ message: "Product deleted" });
   } catch (error) {
-    console.error("Failed to delete announcement:", error);
+    console.error("Failed to delete product:", error);
     return NextResponse.json({ error: "Delete failed" }, { status: 500 });
   }
 }
