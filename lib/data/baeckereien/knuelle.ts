@@ -19,6 +19,7 @@ export const produktPromotion: ProduktPromotionData = {
         "Unser Klassiker mit extra langer Teigführung – jetzt als Saisonedition mit Walnüssen.",
       preis: "4,90 €",
       neu: true,
+      bild: "/images/produkte/landbrot.svg",
     },
     {
       name: 'Buttercroissant „Goldstück"',
@@ -26,6 +27,7 @@ export const produktPromotion: ProduktPromotionData = {
         "72 Schichten feinste Butter – knusprig, luftig, unwiderstehlich.",
       preis: "2,20 €",
       neu: true,
+      bild: "/images/produkte/buttercroissant.svg",
     },
     {
       name: "Dinkel-Vollkorn Brötchen",
@@ -33,6 +35,7 @@ export const produktPromotion: ProduktPromotionData = {
         "Knusprig und nussig – jetzt mit verbesserter Rezeptur und längerer Frischhaltung.",
       preis: "0,95 €",
       neu: false,
+      bild: "/images/produkte/dinkel-vollkorn.svg",
     },
   ],
 };

@@ -69,7 +69,17 @@ export default async function SlidePage({
         <p className="text-xl font-semibold text-muted-foreground">{promotionTitel}</p>
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {produkte.map((produkt) => (
-            <Card key={produkt.name} className="flex flex-col">
+            <Card key={produkt.name} className="flex flex-col overflow-hidden">
+              {produkt.bild && (
+                <div className="relative h-40 w-full">
+                  <Image
+                    src={produkt.bild}
+                    alt={produkt.name}
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+              )}
               <CardHeader>
                 <CardTitle className="flex items-start justify-between gap-2">
                   <span>{produkt.name}</span>

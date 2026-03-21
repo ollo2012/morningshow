@@ -19,6 +19,7 @@ export const produktPromotion: ProduktPromotionData = {
         "Cremiger Cheesecake trifft auf saftigen Blaubeerstrudel – unser neues Signature-Stück.",
       preis: "3,80 €",
       neu: true,
+      bild: "/images/produkte/blueberry-cheesecake.svg",
     },
     {
       name: "Sourdough Jazz Loaf",
@@ -26,6 +27,7 @@ export const produktPromotion: ProduktPromotionData = {
         "48-Stunden Sauerteig mit geröstetem Sesam und Meersalzkruste.",
       preis: "5,50 €",
       neu: true,
+      bild: "/images/produkte/sourdough-jazz.svg",
     },
     {
       name: "Espresso-Walnuss Brownie",
@@ -33,6 +35,7 @@ export const produktPromotion: ProduktPromotionData = {
         "Intensiver Kakao mit echtem Espresso – der perfekte Nachmittagskick.",
       preis: "2,90 €",
       neu: false,
+      bild: "/images/produkte/espresso-brownie.svg",
     },
     {
       name: "Zimt-Kardamom Schnecke",
@@ -40,6 +43,7 @@ export const produktPromotion: ProduktPromotionData = {
         "Fluffiger Hefeteig mit orientalischer Gewürznote – warm am besten!",
       preis: "2,50 €",
       neu: false,
+      bild: "/images/produkte/zimt-kardamom.svg",
     },
   ],
 };
