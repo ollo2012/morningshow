@@ -27,30 +27,9 @@ export default function Slide({
         className
       )}
     >
-      {/* Corner logos */}
-      <div className="absolute top-4 left-4 sm:top-6 sm:left-6 md:top-10 md:left-10">
-        <Image
-          src={firmenLogo}
-          alt="Firmenlogo"
-          width={64}
-          height={64}
-          className="h-10 w-auto sm:h-12 md:h-16 object-contain"
-        />
-      </div>
-      <div className="absolute top-4 right-4 sm:top-6 sm:right-6 md:top-10 md:right-10">
-        <Image
-          src={baeckereiLogo}
-          alt={`${baeckereiName} Logo`}
-          width={64}
-          height={64}
-          className="h-10 w-auto sm:h-12 md:h-16 object-contain"
-        />
-      </div>
-
-      {/* Content area */}
-      <div className="mt-20 flex flex-1 flex-col sm:mt-24 md:mt-28">
-        {/* Left-aligned header */}
-        <div className="mb-6 space-y-1 md:mb-8">
+      {/* Header row: title left, logos right */}
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+        <div className="space-y-1">
           <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl lg:text-6xl">
             {titel}
           </h2>
@@ -60,6 +39,29 @@ export default function Slide({
             </p>
           )}
         </div>
+        <div className="flex shrink-0 items-center gap-2 sm:gap-3">
+          <Image
+            src={firmenLogo}
+            alt="Firmenlogo"
+            width={64}
+            height={64}
+            className="h-10 w-auto sm:h-12 md:h-16 object-contain"
+          />
+          <span className="text-sm font-medium text-muted-foreground sm:text-base md:text-lg">
+            &times;
+          </span>
+          <Image
+            src={baeckereiLogo}
+            alt={`${baeckereiName} Logo`}
+            width={64}
+            height={64}
+            className="h-10 w-auto sm:h-12 md:h-16 object-contain"
+          />
+        </div>
+      </div>
+
+      {/* Content area */}
+      <div className="mt-4 flex flex-1 flex-col sm:mt-6 md:mt-8">
 
         {/* Rounded content box */}
         <div className="flex-1 overflow-y-auto rounded-2xl bg-card p-4 ring-1 ring-border sm:rounded-3xl sm:p-6 md:p-8">
