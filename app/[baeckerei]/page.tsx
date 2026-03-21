@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import { baeckereien } from "@/lib/data/baeckereien";
+import { baeckereien, firmenLogo } from "@/lib/data/baeckereien";
 import Slideshow from "@/components/slideshow";
 import MotivationSlide from "@/components/slides/motivation-slide";
 import ProduktPromotionSlide from "@/components/slides/produkt-promotion-slide";
@@ -22,11 +22,17 @@ export default async function BaeckereiPage({
     notFound();
   }
 
+  const logos = {
+    firmenLogo,
+    baeckereiLogo: daten.logo,
+    baeckereiName: daten.name,
+  };
+
   return (
     <Slideshow richtung="horizontal">
-      <MotivationSlide data={daten.motivation} />
-      <ProduktPromotionSlide data={daten.produktPromotion} />
-      <AnkuendigungenSlide data={daten.ankuendigungen} />
+      <MotivationSlide data={daten.motivation} {...logos} />
+      <ProduktPromotionSlide data={daten.produktPromotion} {...logos} />
+      <AnkuendigungenSlide data={daten.ankuendigungen} {...logos} />
     </Slideshow>
   );
 }

@@ -7,16 +7,26 @@ import {
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import type { ProduktPromotionData } from "@/lib/data/produkt-promotion";
+import type { SlideLogos } from "@/components/slides/types";
 
-interface ProduktPromotionSlideProps {
+interface ProduktPromotionSlideProps extends SlideLogos {
   data: ProduktPromotionData;
 }
 
 export default function ProduktPromotionSlide({
   data,
+  firmenLogo,
+  baeckereiLogo,
+  baeckereiName,
 }: ProduktPromotionSlideProps) {
   return (
-    <Slide titel="Produkt Promotion" untertitel={data.titel}>
+    <Slide
+      titel="Produkt Promotion"
+      untertitel={data.titel}
+      firmenLogo={firmenLogo}
+      baeckereiLogo={baeckereiLogo}
+      baeckereiName={baeckereiName}
+    >
       <div className="space-y-4">
         {data.produkte.map((produkt) => (
           <Card key={produkt.name}>

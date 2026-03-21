@@ -7,16 +7,26 @@ import {
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import type { AnkuendigungenData } from "@/lib/data/ankuendigungen";
+import type { SlideLogos } from "@/components/slides/types";
 
-interface AnkuendigungenSlideProps {
+interface AnkuendigungenSlideProps extends SlideLogos {
   data: AnkuendigungenData;
 }
 
 export default function AnkuendigungenSlide({
   data,
+  firmenLogo,
+  baeckereiLogo,
+  baeckereiName,
 }: AnkuendigungenSlideProps) {
   return (
-    <Slide titel="Ankündigungen" untertitel="Wichtige Infos für das Team">
+    <Slide
+      titel="Ankündigungen"
+      untertitel="Wichtige Infos für das Team"
+      firmenLogo={firmenLogo}
+      baeckereiLogo={baeckereiLogo}
+      baeckereiName={baeckereiName}
+    >
       <div className="space-y-4">
         {data.ankuendigungen.map((item) => (
           <Card
