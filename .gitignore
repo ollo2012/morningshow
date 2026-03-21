@@ -39,8 +39,10 @@ next-env.d.ts
 .vscode
 .node-version
 
+
 # Project specific data
-/data
+/data/*
+!/data/baeckereien/
 
 .idea
 workspace.xml

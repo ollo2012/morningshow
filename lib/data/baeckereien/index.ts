@@ -1,8 +1,10 @@
 import type { ProduktPromotionData } from "@/lib/data/produkt-promotion";
 import type { AnkuendigungenData } from "@/lib/data/ankuendigungen";
 
-import * as knuelle from "./knuelle";
-import * as jazzback from "./jazzback";
+import produktPromotionKnulle from "@/data/baeckereien/knuelle/produktPromotion.json";
+import ankuendigungenKnulle from "@/data/baeckereien/knuelle/ankuendigungen.json";
+import produktPromotionJazzback from "@/data/baeckereien/jazzback/produktPromotion.json";
+import ankuendigungenJazzback from "@/data/baeckereien/jazzback/ankuendigungen.json";
 
 export interface BaeckereiDaten {
   name: string;
@@ -19,13 +21,13 @@ export const baeckereien: Record<string, BaeckereiDaten> = {
   knülle: {
     name: "Bäckerei Knülle",
     logo: "/logos/bakery_knuelle.jpg",
-
-    ...knuelle,
+    produktPromotion: produktPromotionKnulle as ProduktPromotionData,
+    ankuendigungen: { ankuendigungen: ankuendigungenKnulle } as AnkuendigungenData,
   },
   jazzback: {
     name: "Jazzback",
     logo: "/logos/jazzback.svg",
-
-    ...jazzback,
+    produktPromotion: produktPromotionJazzback as ProduktPromotionData,
+    ankuendigungen: { ankuendigungen: ankuendigungenJazzback } as AnkuendigungenData,
   },
 };
