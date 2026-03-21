@@ -15,7 +15,7 @@ export interface BaeckereiDaten {
 
 // Company logo shared across all bakeries
 // Replace .svg with .png when adding real logos
-export const firmenLogo = "/logos/BÄKO-Logo.png";
+export const firmenLogo = "/logos/BAEKO-Logo.png";
 
 export const baeckereien: Record<string, BaeckereiDaten> = {
   knülle: {

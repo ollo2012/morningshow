@@ -15,6 +15,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Morningshow – Bäckerei Briefing",
   description: "Tägliches Morgenbriefing für das Bäckerei-Team",
+  icons: {
+    icon: "/logos/BAEKO-Logo.png",
+  },
 };
 
 export default function RootLayout({
