@@ -8,6 +8,7 @@ import * as jazzback from "./jazzback";
 export interface BaeckereiDaten {
   name: string;
   logo: string;
+  hintergrundFarbe: string;
   motivation: MotivationData;
   produktPromotion: ProduktPromotionData;
   ankuendigungen: AnkuendigungenData;
@@ -21,11 +22,13 @@ export const baeckereien: Record<string, BaeckereiDaten> = {
   knülle: {
     name: "Bäckerei Knülle",
     logo: "/logos/bakery_knuelle.jpg",
+    hintergrundFarbe: "#e0f2fe",
     ...knuelle,
   },
   jazzback: {
     name: "Jazzback",
     logo: "/logos/jazzback.svg",
+    hintergrundFarbe: "#e0f2fe",
     ...jazzback,
   },
 };

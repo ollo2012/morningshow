@@ -12,10 +12,13 @@ export function generateStaticParams() {
 
 export default async function BaeckereiPage({
   params,
+  searchParams,
 }: {
   params: Promise<{ baeckerei: string }>;
+  searchParams: Promise<Record<string, string | string[] | undefined>>;
 }) {
   const { baeckerei: slug } = await params;
+  const query = await searchParams;
   const decoded = decodeURIComponent(slug);
   const daten = baeckereien[decoded];
 
@@ -23,10 +26,14 @@ export default async function BaeckereiPage({
     notFound();
   }
 
+  const farbe =
+    typeof query.farbe === "string" ? query.farbe : daten.hintergrundFarbe;
+
   const logos = {
     firmenLogo,
     baeckereiLogo: daten.logo,
     baeckereiName: daten.name,
+    hintergrundFarbe: farbe,
   };
 
   return (

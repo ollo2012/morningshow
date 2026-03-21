@@ -18,6 +18,7 @@ export default function MotivationSlide({
   firmenLogo,
   baeckereiLogo,
   baeckereiName,
+  hintergrundFarbe,
 }: MotivationSlideProps) {
   return (
     <Slide
@@ -26,6 +27,7 @@ export default function MotivationSlide({
       firmenLogo={firmenLogo}
       baeckereiLogo={baeckereiLogo}
       baeckereiName={baeckereiName}
+      hintergrundFarbe={hintergrundFarbe}
     >
       <div className="space-y-4">
         <Card>

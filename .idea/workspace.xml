@@ -4,10 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="18e73f8f-3569-404e-8fdb-9d5935600940" name="Changes" comment="add caffeine layout">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/favicon.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/layout.tsx" afterDir="false" />
+    <list default="true" id="18e73f8f-3569-404e-8fdb-9d5935600940" name="Changes" comment="add baeko logo">
+      <change beforePath="$PROJECT_DIR$/app/[baeckerei]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/[baeckerei]/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/slide.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/slide.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/slides/ankuendigungen-slide.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/slides/ankuendigungen-slide.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/slides/motivation-slide.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/slides/motivation-slide.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/slides/produkt-promotion-slide.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/slides/produkt-promotion-slide.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/slides/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/components/slides/types.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/slides/uebersicht-slide.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/slides/uebersicht-slide.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/data/baeckereien/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/lib/data/baeckereien/index.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,7 +84,7 @@
       <option name="presentableId" value="Default" />
       <updated>1774091506765</updated>
       <workItem from="1774091508024" duration="5462000" />
-      <workItem from="1774101150574" duration="2265000" />
+      <workItem from="1774101150574" duration="2889000" />
     </task>
     <task id="LOCAL-00001" summary="add images">
       <option name="closed" value="true" />
@@ -128,7 +134,15 @@
       <option name="project" value="LOCAL" />
       <updated>1774102560848</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="add baeko logo">
+      <option name="closed" value="true" />
+      <created>1774103645905</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1774103645905</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -141,7 +155,8 @@
     <MESSAGE value="add progress bar" />
     <MESSAGE value="new layout for slide and logos" />
     <MESSAGE value="add caffeine layout" />
-    <option name="LAST_COMMIT_MESSAGE" value="add caffeine layout" />
+    <MESSAGE value="add baeko logo" />
+    <option name="LAST_COMMIT_MESSAGE" value="add baeko logo" />
   </component>
   <component name="github-copilot-workspace">
     <instructionFileLocations>

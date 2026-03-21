@@ -27,6 +27,7 @@ export default function UebersichtSlide({
   firmenLogo,
   baeckereiLogo,
   baeckereiName,
+  hintergrundFarbe,
 }: UebersichtSlideProps) {
   const wichtigeAnkuendigungen = ankuendigungen.ankuendigungen.filter(
     (a) => a.wichtig
@@ -87,6 +88,7 @@ export default function UebersichtSlide({
       firmenLogo={firmenLogo}
       baeckereiLogo={baeckereiLogo}
       baeckereiName={baeckereiName}
+      hintergrundFarbe={hintergrundFarbe}
     >
       <div className="grid gap-4 sm:grid-cols-3">
         {slides.map((slide) => (
