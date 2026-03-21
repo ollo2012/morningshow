@@ -10,6 +10,7 @@ interface SlideProps {
   hintergrundFarbe?: string;
   children: React.ReactNode;
   className?: string;
+  contentClassName?: string;
   id?: string;
 }
 
@@ -22,6 +23,7 @@ export default function Slide({
   hintergrundFarbe = "#e0f2fe",
   children,
   className,
+  contentClassName,
   id,
 }: SlideProps) {
   return (
@@ -69,7 +71,7 @@ export default function Slide({
         </div>
 
         {/* Content area */}
-        <div className="mt-4 flex-1 overflow-y-auto px-1 pt-1 sm:mt-6 sm:px-2 sm:pt-2 md:mt-8">
+        <div className={cn("mt-4 min-h-0 flex-1 overflow-y-auto px-1 pt-1 sm:mt-6 sm:px-2 sm:pt-2 md:mt-8", contentClassName)}>
           {children}
         </div>
       </div>

@@ -8,20 +8,17 @@ import {
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import type { SlideLogos } from "@/components/slides/types";
-import type { MotivationData } from "@/lib/data/motivation";
 import type { ProduktPromotionData } from "@/lib/data/produkt-promotion";
 import type { AnkuendigungenData } from "@/lib/data/ankuendigungen";
 
 interface UebersichtSlideProps extends SlideLogos {
   baeckereiSlug: string;
-  motivation: MotivationData;
   produktPromotion: ProduktPromotionData;
   ankuendigungen: AnkuendigungenData;
 }
 
 export default function UebersichtSlide({
   baeckereiSlug,
-  motivation,
   produktPromotion,
   ankuendigungen,
   firmenLogo,
@@ -29,79 +26,79 @@ export default function UebersichtSlide({
   baeckereiName,
   hintergrundFarbe,
 }: UebersichtSlideProps) {
-  const wichtigeAnkuendigungen = ankuendigungen.ankuendigungen.filter(
-    (a) => a.wichtig
-  ).length;
-
-  const slides = [
-    {
-      href: `/${baeckereiSlug}/motivation`,
-      titel: "Motivation",
-      untertitel: "Dein Tagesimpuls",
-      preview: (
-        <p className="line-clamp-2 text-sm italic text-muted-foreground">
-          &ldquo;{motivation.spruch}&rdquo;
-        </p>
-      ),
-    },
-    {
-      href: `/${baeckereiSlug}/produkt-promotion`,
-      titel: "Produkt Promotion",
-      untertitel: produktPromotion.titel,
-      preview: (
-        <div className="flex flex-wrap gap-1">
-          {produktPromotion.produkte.slice(0, 3).map((p) => (
-            <Badge key={p.name} variant={p.neu ? "default" : "secondary"}>
-              {p.name}
-            </Badge>
-          ))}
-          {produktPromotion.produkte.length > 3 && (
-            <Badge variant="outline">
-              +{produktPromotion.produkte.length - 3}
-            </Badge>
-          )}
-        </div>
-      ),
-    },
-    {
-      href: `/${baeckereiSlug}/ankuendigungen`,
-      titel: "Ankündigungen",
-      untertitel: `${ankuendigungen.ankuendigungen.length} Einträge`,
-      preview: (
-        <div className="flex items-center gap-2">
-          <span className="text-sm text-muted-foreground">
-            {ankuendigungen.ankuendigungen[0]?.titel}
-          </span>
-          {wichtigeAnkuendigungen > 0 && (
-            <Badge variant="destructive">{wichtigeAnkuendigungen} wichtig</Badge>
-          )}
-        </div>
-      ),
-    },
-  ];
-
   return (
     <Slide
       id="uebersicht"
       titel="Übersicht"
-      untertitel="Alle Themen auf einen Blick"
+      untertitel="Produkte & Ankündigungen"
       firmenLogo={firmenLogo}
       baeckereiLogo={baeckereiLogo}
       baeckereiName={baeckereiName}
       hintergrundFarbe={hintergrundFarbe}
     >
-      <div className="grid gap-4 sm:grid-cols-3">
-        {slides.map((slide) => (
-          <Link key={slide.href} href={slide.href}>
-            <Card className="h-full cursor-pointer transition-colors hover:bg-accent hover:text-accent-foreground">
-              <CardHeader>
-                <CardTitle className="text-lg">{slide.titel}</CardTitle>
-                <p className="text-xs text-muted-foreground">{slide.untertitel}</p>
-              </CardHeader>
-              <CardContent>{slide.preview}</CardContent>
-            </Card>
-          </Link>
-        ))}
+      <div className="flex flex-col gap-6">
+        {/* Produkte */}
+        <section className="flex flex-col gap-3">
+          <h3 className="text-sm font-semibold uppercase tracking-wider text-muted-foreground">
+            Produkte
+          </h3>
+          <div className="space-y-2">
+            {produktPromotion.produkte.map((produkt, i) => (
+              <Link key={i} href={`/${baeckereiSlug}/produkt/${i}`}>
+                <Card className="cursor-pointer transition-colors hover:bg-accent hover:text-accent-foreground">
+                  <CardHeader className="py-3">
+                    <CardTitle className="flex items-center justify-between gap-2 text-base">
+                      <span>{produkt.name}</span>
+                      <div className="flex items-center gap-2 shrink-0">
+                        {produkt.neu && <Badge>NEU</Badge>}
+                        <span className="font-semibold">{produkt.preis}</span>
+                      </div>
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent className="pb-3 pt-0">
+                    <p className="line-clamp-1 text-sm text-muted-foreground">
+                      {produkt.beschreibung}
+                    </p>
+                  </CardContent>
+                </Card>
+              </Link>
+            ))}
+          </div>
+        </section>
+
+        {/* Ankündigungen */}
+        <section className="flex flex-col gap-3">
+          <h3 className="text-sm font-semibold uppercase tracking-wider text-muted-foreground">
+            Ankündigungen
+          </h3>
+          <div className="space-y-2">
+            {ankuendigungen.ankuendigungen.map((item, i) => (
+              <Link key={i} href={`/${baeckereiSlug}/ankuendigung/${i}`}>
+                <Card
+                  className={`cursor-pointer transition-colors hover:bg-accent hover:text-accent-foreground ${
+                    item.wichtig ? "border-destructive/40 bg-destructive/5" : ""
+                  }`}
+                >
+                  <CardHeader className="py-3">
+                    <CardTitle className="flex items-center justify-between gap-2 text-base">
+                      <span>{item.titel}</span>
+                      {item.wichtig && (
+                        <Badge variant="destructive" className="shrink-0">
+                          WICHTIG
+                        </Badge>
+                      )}
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent className="pb-3 pt-0">
+                    <p className="line-clamp-1 text-sm text-muted-foreground">
+                      {item.inhalt}
+                    </p>
+                  </CardContent>
+                </Card>
+              </Link>
+            ))}
+          </div>
+        </section>
       </div>
     </Slide>
   );

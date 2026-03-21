@@ -43,7 +43,6 @@ export default async function BaeckereiPage({
       <AnkuendigungenSlide data={daten.ankuendigungen} {...logos} />
       <UebersichtSlide
         baeckereiSlug={slug}
-        motivation={daten.motivation}
         produktPromotion={daten.produktPromotion}
         ankuendigungen={daten.ankuendigungen}
         {...logos}
