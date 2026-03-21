@@ -8,7 +8,30 @@
 	- beschreibung: Leckerer Karottenkuchen mit frosting
 	- zusatzinfos: passt gut zum Sonntagskaffee oder Picknick
 	- preis: 4,90€/StÜck
-	- neu: ja
+	- status: neu
+	- allergene: gluten, ei, milch, nüsse"
+    - naehrwerte:
+        portionsgroesse: "100 g"
+        kalorien: "342 kcal"
+        kohlenhydrate: "48 g"
+        davonZucker: "28 g"
+        fett: "14 g"
+        davonGesaettigt: "5 g"
+        eiweiss: "5 g"
+        salz: "0,4 g"
+      
+- produkte:
+	- name: Lemon Tarte
+	- beschreibung: Lemon tarte wird nicht mehr angeboten, kommt wieder im Sommer
+	- preis: 4,90€/StÜck
+	- status: eingestellt
+
+
+- produkte:
+	- name: Crossaint
+	- beschreibung: Das crossaint wird jetzt mit 165°C gebacken
+	- preis: 4,90€/StÜck
+	- status: Überarbeitet
 
 ## Ankündigungen
 - ankuendigungen: Liste von Ankündigungen, jede mit:
