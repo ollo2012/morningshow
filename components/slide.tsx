@@ -9,6 +9,7 @@ interface SlideProps {
   baeckereiName: string;
   children: React.ReactNode;
   className?: string;
+  id?: string;
 }
 
 export default function Slide({
@@ -19,9 +20,11 @@ export default function Slide({
   baeckereiName,
   children,
   className,
+  id,
 }: SlideProps) {
   return (
     <section
+      id={id}
       className={cn(
         "relative flex h-full w-full shrink-0 snap-center flex-col bg-muted/30 p-4 sm:p-6 md:p-10",
         className

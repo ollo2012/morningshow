@@ -4,6 +4,7 @@ import Slideshow from "@/components/slideshow";
 import MotivationSlide from "@/components/slides/motivation-slide";
 import ProduktPromotionSlide from "@/components/slides/produkt-promotion-slide";
 import AnkuendigungenSlide from "@/components/slides/ankuendigungen-slide";
+import UebersichtSlide from "@/components/slides/uebersicht-slide";
 
 export function generateStaticParams() {
   return Object.keys(baeckereien).map((slug) => ({ baeckerei: slug }));
@@ -33,6 +34,13 @@ export default async function BaeckereiPage({
       <MotivationSlide data={daten.motivation} {...logos} />
       <ProduktPromotionSlide data={daten.produktPromotion} {...logos} />
       <AnkuendigungenSlide data={daten.ankuendigungen} {...logos} />
+      <UebersichtSlide
+        baeckereiSlug={slug}
+        motivation={daten.motivation}
+        produktPromotion={daten.produktPromotion}
+        ankuendigungen={daten.ankuendigungen}
+        {...logos}
+      />
     </Slideshow>
   );
 }
