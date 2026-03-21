@@ -52,7 +52,7 @@ export default function ProduktPromotionSlide({
                 </CardHeader>
                 <CardContent className="space-y-2">
                   <div className="flex items-start justify-between gap-4">
-                    <p className="text-sm text-muted-foreground">
+                    <p className="text-base text-muted-foreground sm:text-lg">
                       {produkt.beschreibung}
                     </p>
                     <span className="shrink-0 font-semibold">{produkt.preis}</span>

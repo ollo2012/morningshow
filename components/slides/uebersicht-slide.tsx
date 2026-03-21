@@ -37,7 +37,7 @@ export default function UebersichtSlide({
       <div className="flex flex-col gap-6">
         {/* Produkte */}
         <section className="flex flex-col gap-3">
-          <h3 className="text-sm font-semibold uppercase tracking-wider text-muted-foreground">
+          <h3 className="text-base font-semibold uppercase tracking-wider text-muted-foreground sm:text-lg">
             Produkte
           </h3>
           <div className="space-y-2">
@@ -45,7 +45,7 @@ export default function UebersichtSlide({
               <Link key={i} href={`/${baeckereiSlug}/produkt/${i}`}>
                 <Card className="mb-4 cursor-pointer transition-colors hover:bg-accent hover:text-accent-foreground mb-4">
                   <CardHeader className="py-3">
-                    <CardTitle className="flex items-center justify-between gap-2 text-base">
+                    <CardTitle className="flex items-center justify-between gap-2 text-lg sm:text-xl">
                       <span>{produkt.name}</span>
                       <div className="flex items-center gap-2 shrink-0">
                         {produkt.neu && <Badge>NEU</Badge>}
@@ -54,7 +54,7 @@ export default function UebersichtSlide({
                     </CardTitle>
                   </CardHeader>
                   <CardContent className="pb-3 pt-0">
-                    <p className="line-clamp-1 text-sm text-muted-foreground">
+                    <p className="line-clamp-1 text-base text-muted-foreground sm:text-lg">
                       {produkt.beschreibung}
                     </p>
                   </CardContent>
@@ -66,7 +66,7 @@ export default function UebersichtSlide({
 
         {/* Ankündigungen */}
         <section className="flex flex-col gap-3">
-          <h3 className="text-sm font-semibold uppercase tracking-wider text-muted-foreground mb-4">
+          <h3 className="text-base font-semibold uppercase tracking-wider text-muted-foreground mb-4 sm:text-lg">
             Ankündigungen
           </h3>
           <div className="space-y-2">
@@ -78,7 +78,7 @@ export default function UebersichtSlide({
                   }`}
                 >
                   <CardHeader className="py-3">
-                    <CardTitle className="flex items-center justify-between gap-2 text-base">
+                    <CardTitle className="flex items-center justify-between gap-2 text-lg sm:text-xl">
                       <span>{item.titel}</span>
                       {item.wichtig && (
                         <Badge variant="destructive" className="shrink-0">
@@ -88,7 +88,7 @@ export default function UebersichtSlide({
                     </CardTitle>
                   </CardHeader>
                   <CardContent className="pb-3 pt-0">
-                    <p className="line-clamp-1 text-sm text-muted-foreground">
+                    <p className="line-clamp-1 text-base text-muted-foreground sm:text-lg">
                       {item.inhalt}
                     </p>
                   </CardContent>

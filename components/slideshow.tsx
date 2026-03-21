@@ -69,7 +69,7 @@ export default function Slideshow({
   return (
     <div className="relative flex h-screen flex-col">
       {/* Progress bar */}
-      <div className="px-4 pt-2 pb-1 sm:px-6 md:px-10">
+      <div className="px-2 pt-1 pb-0.5 sm:px-3 md:px-5">
         <Progress value={fortschritt} className="h-2" />
       </div>
 
@@ -88,7 +88,7 @@ export default function Slideshow({
       </div>
 
       {/* Bottom nav */}
-      <nav className="flex items-center justify-center gap-6 px-4 pb-2 pt-1">
+      <nav className="flex items-center justify-center gap-6 px-2 pb-1 pt-0.5">
         <button
           onClick={() => scrollToSlide(aktuelleSlide - 1)}
           disabled={aktuelleSlide === 0}

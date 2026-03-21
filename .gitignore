@@ -41,3 +41,6 @@ next-env.d.ts
 
 # Project specific data
 /data
+
+.idea
+workspace.xml

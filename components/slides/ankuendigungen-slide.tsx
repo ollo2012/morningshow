@@ -40,7 +40,7 @@ export default function AnkuendigungenSlide({
                 {item.titel}
                 {item.wichtig && <Badge variant="destructive">WICHTIG</Badge>}
               </CardTitle>
-              <span className="text-xs text-muted-foreground">
+              <span className="text-sm text-muted-foreground sm:text-base">
                 {new Date(item.datum).toLocaleDateString("de-DE", {
                   day: "2-digit",
                   month: "long",
@@ -49,7 +49,7 @@ export default function AnkuendigungenSlide({
               </span>
             </CardHeader>
             <CardContent>
-              <p className="text-sm text-muted-foreground">{item.inhalt}</p>
+              <p className="text-base text-muted-foreground sm:text-lg">{item.inhalt}</p>
             </CardContent>
           </Card>
         ))}

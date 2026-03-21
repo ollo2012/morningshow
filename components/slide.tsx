@@ -29,20 +29,20 @@ export default function Slide({
     <section
       id={id}
       className={cn(
-        "flex h-full w-full shrink-0 snap-center bg-background px-3 py-1 sm:px-5 sm:py-1 md:px-8 md:py-1",
+        "flex h-full w-full shrink-0 snap-center bg-background",
         className
       )}
     >
       {/* Rounded box wrapping the entire slide content */}
-      <div className="flex flex-1 flex-col overflow-hidden rounded-2xl bg-card px-4 py-3 ring-1 ring-border sm:rounded-3xl sm:px-6 sm:py-4 md:px-8 md:py-5">
+      <div className="flex flex-1 flex-col overflow-hidden bg-card px-5 py-3 sm:px-8 sm:py-4 md:px-10 md:py-5">
         {/* Header row: title left, logos right */}
         <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
           <div className="space-y-1">
-            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl lg:text-6xl">
+            <h2 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
               {titel}
             </h2>
             {untertitel && (
-              <p className="text-base text-muted-foreground sm:text-lg md:text-xl">
+              <p className="text-lg text-muted-foreground sm:text-xl md:text-2xl">
                 {untertitel}
               </p>
             )}
@@ -53,7 +53,7 @@ export default function Slide({
               alt="Firmenlogo"
               width={64}
               height={64}
-              className="h-10 w-auto sm:h-12 md:h-16 object-contain"
+              className="h-12 w-auto sm:h-16 md:h-20 object-contain"
             />
             <span className="text-sm font-medium text-muted-foreground sm:text-base md:text-lg">
               &times;
@@ -63,7 +63,7 @@ export default function Slide({
               alt={`${baeckereiName} Logo`}
               width={64}
               height={64}
-              className="h-10 w-auto sm:h-12 md:h-16 object-contain"
+              className="h-12 w-auto sm:h-16 md:h-20 object-contain"
             />
           </div>
         </div>
