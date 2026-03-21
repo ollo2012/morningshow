@@ -40,12 +40,14 @@ export const ankuendigungen: AnkuendigungenData = {
       inhalt: "Liebes Team, denkt bitte daran, unsere Kunden aktiv auf das bevorstehende Osterfest hinzuweisen.",
       datum: "2026-04-08",
       wichtig: true,
+      bild: "/images/ankuendigungen/ostern.svg",
     },
     {
       titel: "Brezeln werden nicht geliefert!",
       inhalt: "Wichtige Info für den Verkauf: Die Brezeln sind leider verbrannt und stehen heute nicht zur Verfügung.",
       datum: "2026-03-21",
       wichtig: true,
+      icon: "TriangleAlert",
     },
   ],
 };

@@ -51,6 +51,7 @@ export const ankuendigungen: AnkuendigungenData = {
         "Diesen Samstag, 22.03., veranstalten wir ein Pop-Up im Stadtpark. Wer beim Aufbau helfen kann, bitte bei Tom melden!",
       datum: "2026-03-22",
       wichtig: true,
+      icon: "PartyPopper",
     },
     {
       titel: "Neue Schichtpläne ab April",
@@ -58,6 +59,7 @@ export const ankuendigungen: AnkuendigungenData = {
         "Die neuen Schichtpläne für April hängen ab Montag aus. Tauschwünsche bitte bis 28.03. einreichen.",
       datum: "2026-03-23",
       wichtig: false,
+      icon: "CalendarDays",
     },
     {
       titel: "Instagram-Schulung",
@@ -65,6 +67,7 @@ export const ankuendigungen: AnkuendigungenData = {
         "Am 02.04. gibt es eine kurze Schulung zum Thema Food-Fotografie für unseren Instagram-Kanal. Alle sind willkommen!",
       datum: "2026-04-02",
       wichtig: false,
+      icon: "Camera",
     },
   ],
 };

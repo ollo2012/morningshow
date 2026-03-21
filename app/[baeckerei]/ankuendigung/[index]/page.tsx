@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import { baeckereien, firmenLogo } from "@/lib/data/baeckereien";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { AnkuendigungIcon, AnkuendigungImage } from "@/components/ankuendigung-visual";
 import Slide from "@/components/slide";
 
 export function generateStaticParams() {
@@ -45,10 +46,17 @@ export default async function AnkuendigungDetailPage({
         baeckereiName={daten.name}
       >
         <div className="space-y-4">
-          {item.wichtig && (
-            <div>
-              <Badge variant="destructive">WICHTIG</Badge>
-            </div>
+          <div className="flex items-center gap-2">
+            {item.icon && <AnkuendigungIcon icon={item.icon} className="h-6 w-6" />}
+            {item.wichtig && <Badge variant="destructive">WICHTIG</Badge>}
+          </div>
+
+          {item.bild && (
+            <AnkuendigungImage
+              bild={item.bild}
+              alt={item.titel}
+              className="h-40 w-full rounded-lg"
+            />
           )}
 
           <Card className={item.wichtig ? "border-destructive/40 bg-destructive/5" : ""}>

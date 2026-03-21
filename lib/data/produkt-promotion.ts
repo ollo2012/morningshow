@@ -24,6 +24,7 @@ export interface Produkt {
   beschreibung: string;
   preis: string;
   neu: boolean;
+  bild?: string;
   allergene?: Allergen[];
   naehrwerte?: Naehrwerte;
 }

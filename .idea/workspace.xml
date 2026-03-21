@@ -4,14 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="18e73f8f-3569-404e-8fdb-9d5935600940" name="Changes" comment="more subtle nav bar buttons">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="18e73f8f-3569-404e-8fdb-9d5935600940" name="Changes" comment="removed padding and box logic">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/slide.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/slide.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/[baeckerei]/ankuendigung/[index]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/[baeckerei]/ankuendigung/[index]/page.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/slides/ankuendigungen-slide.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/slides/ankuendigungen-slide.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/slides/produkt-promotion-slide.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/slides/produkt-promotion-slide.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/slides/uebersicht-slide.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/slides/uebersicht-slide.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/slideshow.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/slideshow.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/data/ankuendigungen.ts" beforeDir="false" afterPath="$PROJECT_DIR$/lib/data/ankuendigungen.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/data/baeckereien/jazzback.ts" beforeDir="false" afterPath="$PROJECT_DIR$/lib/data/baeckereien/jazzback.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/data/baeckereien/knuelle.ts" beforeDir="false" afterPath="$PROJECT_DIR$/lib/data/baeckereien/knuelle.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/data/produkt-promotion.ts" beforeDir="false" afterPath="$PROJECT_DIR$/lib/data/produkt-promotion.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -180,7 +181,15 @@
       <option name="project" value="LOCAL" />
       <updated>1774109147000</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="removed padding and box logic">
+      <option name="closed" value="true" />
+      <created>1774109870231</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1774109870231</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -199,7 +208,8 @@
     <MESSAGE value="remove custom coloring" />
     <MESSAGE value="remove motivation slide" />
     <MESSAGE value="more subtle nav bar buttons" />
-    <option name="LAST_COMMIT_MESSAGE" value="more subtle nav bar buttons" />
+    <MESSAGE value="removed padding and box logic" />
+    <option name="LAST_COMMIT_MESSAGE" value="removed padding and box logic" />
   </component>
   <component name="github-copilot-workspace">
     <instructionFileLocations>
