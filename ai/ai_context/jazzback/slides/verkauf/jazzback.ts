@@ -9,8 +9,7 @@ export const produktPromotion: ProduktPromotionData = {
       beschreibung:
         "Cremiger Cheesecake trifft auf saftigen Blaubeerstrudel – unser neues Signature-Stück.",
       preis: "3,80 €",
-      neu: true,
-      bild: "/images/produkte/blueberry-cheesecake.svg",
+      status: "neu" as const,
       allergene: ["gluten", "milch", "ei"],
     },
     {
@@ -18,8 +17,7 @@ export const produktPromotion: ProduktPromotionData = {
       beschreibung:
         "48-Stunden Sauerteig mit geröstetem Sesam und Meersalzkruste.",
       preis: "5,50 €",
-      neu: true,
-      bild: "/images/produkte/sourdough-jazz.svg",
+      status: "neu" as const,
       allergene: ["gluten", "sesam"],
     },
     {
@@ -27,8 +25,6 @@ export const produktPromotion: ProduktPromotionData = {
       beschreibung:
         "Intensiver Kakao mit echtem Espresso – der perfekte Nachmittagskick.",
       preis: "2,90 €",
-      neu: false,
-      bild: "/images/produkte/espresso-brownie.svg",
       allergene: ["gluten", "milch", "ei", "nüsse"],
     },
     {
@@ -36,8 +32,6 @@ export const produktPromotion: ProduktPromotionData = {
       beschreibung:
         "Fluffiger Hefeteig mit orientalischer Gewürznote – warm am besten!",
       preis: "2,50 €",
-      neu: false,
-      bild: "/images/produkte/zimt-kardamom.svg",
       allergene: ["gluten", "milch", "ei"],
     },
   ],
@@ -51,6 +45,7 @@ export const ankuendigungen: AnkuendigungenData = {
         "Diesen Samstag, 22.03., veranstalten wir ein Pop-Up im Stadtpark. Wer beim Aufbau helfen kann, bitte bei Tom melden!",
       datum: "2026-03-22",
       wichtig: true,
+      icon: "PartyPopper",
     },
     {
       titel: "Neue Schichtpläne ab April",
@@ -58,6 +53,7 @@ export const ankuendigungen: AnkuendigungenData = {
         "Die neuen Schichtpläne für April hängen ab Montag aus. Tauschwünsche bitte bis 28.03. einreichen.",
       datum: "2026-03-23",
       wichtig: false,
+      icon: "CalendarDays",
     },
     {
       titel: "Instagram-Schulung",
@@ -65,6 +61,7 @@ export const ankuendigungen: AnkuendigungenData = {
         "Am 02.04. gibt es eine kurze Schulung zum Thema Food-Fotografie für unseren Instagram-Kanal. Alle sind willkommen!",
       datum: "2026-04-02",
       wichtig: false,
+      icon: "Camera",
     },
   ],
 };
