@@ -1,4 +1,6 @@
 import Image from "next/image";
+import Link from "next/link";
+import { ArrowLeft } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface SlideProps {
@@ -8,6 +10,7 @@ interface SlideProps {
   baeckereiLogo: string;
   baeckereiName: string;
 
+  backHref?: string;
   children: React.ReactNode;
   className?: string;
   contentClassName?: string;
@@ -20,6 +23,7 @@ export default function Slide({
   firmenLogo,
   baeckereiLogo,
   baeckereiName,
+  backHref,
   children,
   className,
   contentClassName,
@@ -45,6 +49,15 @@ export default function Slide({
               <p className="text-lg text-muted-foreground sm:text-xl md:text-2xl">
                 {untertitel}
               </p>
+            )}
+            {backHref && (
+              <Link
+                href={backHref}
+                className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors"
+              >
+                <ArrowLeft className="h-3.5 w-3.5" />
+                Zurück zur Übersicht
+              </Link>
             )}
           </div>
           <div className="flex shrink-0 items-center gap-2 sm:gap-3">

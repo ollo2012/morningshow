@@ -3,7 +3,6 @@ import { baeckereien, firmenLogo } from "@/lib/data/baeckereien";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import Slide from "@/components/slide";
-import BottomNav from "@/components/bottom-nav";
 
 export function generateStaticParams() {
   return Object.keys(baeckereien).flatMap((baeckerei) => {
@@ -36,15 +35,14 @@ export default async function AnkuendigungDetailPage({
   });
 
   return (
-    <div className="flex h-screen flex-col">
+    <div className="h-screen">
       <Slide
         titel={item.titel}
         untertitel="Ankündigung"
+        backHref={`/${baeckereiSlug}#uebersicht`}
         firmenLogo={firmenLogo}
         baeckereiLogo={daten.logo}
         baeckereiName={daten.name}
-
-        className="flex-1"
       >
         <div className="space-y-4">
           {item.wichtig && (
@@ -72,7 +70,6 @@ export default async function AnkuendigungDetailPage({
           </Card>
         </div>
       </Slide>
-      <BottomNav backHref={`/${baeckereiSlug}#uebersicht`} />
     </div>
   );
 }

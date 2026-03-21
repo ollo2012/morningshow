@@ -13,7 +13,6 @@ const PRODUKT_BILDER = [
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import Slide from "@/components/slide";
-import BottomNav from "@/components/bottom-nav";
 import { AllergenBadges } from "@/components/allergen-badge";
 import Image from "next/image";
 
@@ -42,10 +41,11 @@ export default async function ProduktDetailPage({
   if (!produkt) notFound();
 
   return (
-    <div className="flex h-screen flex-col">
+    <div className="h-screen">
       <Slide
         titel={produkt.name}
         untertitel={daten.produktPromotion.titel}
+        backHref={`/${baeckereiSlug}#uebersicht`}
         firmenLogo={firmenLogo}
         baeckereiLogo={daten.logo}
         baeckereiName={daten.name}
@@ -121,7 +121,6 @@ export default async function ProduktDetailPage({
           </Card>
         </div>
       </Slide>
-      <BottomNav backHref={`/${baeckereiSlug}#uebersicht`} />
     </div>
   );
 }
