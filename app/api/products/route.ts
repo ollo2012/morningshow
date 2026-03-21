@@ -38,10 +38,6 @@ export async function POST(req: Request) {
   if (!session && apiKey !== process.env.SYNC_TOKEN) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
-  
-  if (!session) {
-    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
-  }
 
   try {
     const { title, text, date } = await req.json();
