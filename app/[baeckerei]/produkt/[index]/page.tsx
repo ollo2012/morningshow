@@ -1,9 +1,20 @@
 import { notFound } from "next/navigation";
 import { baeckereien, firmenLogo } from "@/lib/data/baeckereien";
+
+const PRODUKT_BILDER = [
+  "/images/produkte/landbrot.svg",
+  "/images/produkte/buttercroissant.svg",
+  "/images/produkte/dinkel-vollkorn.svg",
+  "/images/produkte/blueberry-cheesecake.svg",
+  "/images/produkte/espresso-brownie.svg",
+  "/images/produkte/sourdough-jazz.svg",
+  "/images/produkte/zimt-kardamom.svg",
+];
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import Slide from "@/components/slide";
 import BottomNav from "@/components/bottom-nav";
+import { AllergenBadges } from "@/components/allergen-badge";
 import Image from "next/image";
 
 export function generateStaticParams() {
@@ -56,19 +67,58 @@ export default async function ProduktDetailPage({
             </CardContent>
           </Card>
 
-          {produkt.bild && (
+          {produkt.allergene && produkt.allergene.length > 0 && (
             <Card>
-              <CardContent className="pt-6">
-                <Image
-                  src={produkt.bild}
-                  alt={produkt.name}
-                  width={600}
-                  height={400}
-                  className="w-full rounded-lg object-cover"
-                />
+              <CardHeader>
+                <CardTitle className="text-base text-muted-foreground">Allergene</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <AllergenBadges allergene={produkt.allergene} />
               </CardContent>
             </Card>
           )}
+
+          {produkt.naehrwerte && (
+            <Card>
+              <CardHeader>
+                <CardTitle className="text-base text-muted-foreground">
+                  Nährwerte pro {produkt.naehrwerte.portionsgroesse}
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <table className="w-full text-sm">
+                  <tbody className="divide-y">
+                    {[
+                      { label: "Kalorien", value: produkt.naehrwerte.kalorien },
+                      { label: "Kohlenhydrate", value: produkt.naehrwerte.kohlenhydrate },
+                      { label: "davon Zucker", value: produkt.naehrwerte.davonZucker, indent: true },
+                      { label: "Fett", value: produkt.naehrwerte.fett },
+                      { label: "davon gesättigt", value: produkt.naehrwerte.davonGesaettigt, indent: true },
+                      { label: "Eiweiß", value: produkt.naehrwerte.eiweiss },
+                      { label: "Salz", value: produkt.naehrwerte.salz },
+                    ].map(({ label, value, indent }) => (
+                      <tr key={label}>
+                        <td className={`py-1.5 text-muted-foreground ${indent ? "pl-4" : ""}`}>{label}</td>
+                        <td className="py-1.5 text-right font-medium">{value}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </CardContent>
+            </Card>
+          )}
+
+          <Card>
+            <CardContent className="pt-6">
+              <Image
+                src={PRODUKT_BILDER[Number(index) % PRODUKT_BILDER.length]}
+                alt={produkt.name}
+                width={600}
+                height={400}
+                className="w-full rounded-lg object-cover"
+              />
+            </CardContent>
+          </Card>
         </div>
       </Slide>
       <BottomNav backHref={`/${baeckereiSlug}#uebersicht`} />

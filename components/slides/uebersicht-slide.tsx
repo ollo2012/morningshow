@@ -43,7 +43,7 @@ export default function UebersichtSlide({
           <div className="space-y-2">
             {produktPromotion.produkte.map((produkt, i) => (
               <Link key={i} href={`/${baeckereiSlug}/produkt/${i}`}>
-                <Card className="cursor-pointer transition-colors hover:bg-accent hover:text-accent-foreground mb-4">
+                <Card className="mb-4 cursor-pointer transition-colors hover:bg-accent hover:text-accent-foreground mb-4">
                   <CardHeader className="py-3">
                     <CardTitle className="flex items-center justify-between gap-2 text-base">
                       <span>{produkt.name}</span>
@@ -73,7 +73,7 @@ export default function UebersichtSlide({
             {ankuendigungen.ankuendigungen.map((item, i) => (
               <Link key={i} href={`/${baeckereiSlug}/ankuendigung/${i}`}>
                 <Card
-                  className={`cursor-pointer transition-colors hover:bg-accent hover:text-accent-foreground ${
+                  className={`mb-4 cursor-pointer transition-colors hover:bg-accent hover:text-accent-foreground ${
                     item.wichtig ? "border-destructive/40 bg-destructive/5" : ""
                   }`}
                 >
