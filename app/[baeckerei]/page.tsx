@@ -29,15 +29,17 @@ export default async function BaeckereiPage({
   };
 
   return (
-    <Slideshow richtung="horizontal">
-      <ProduktPromotionSlide data={daten.produktPromotion} {...logos} />
-      <AnkuendigungenSlide data={daten.ankuendigungen} {...logos} />
-      <UebersichtSlide
-        baeckereiSlug={slug}
-        produktPromotion={daten.produktPromotion}
-        ankuendigungen={daten.ankuendigungen}
-        {...logos}
-      />
-    </Slideshow>
+    <div className="bakery-theme" style={daten.theme as React.CSSProperties}>
+      <Slideshow richtung="horizontal">
+        <ProduktPromotionSlide data={daten.produktPromotion} {...logos} />
+        <AnkuendigungenSlide data={daten.ankuendigungen} {...logos} />
+        <UebersichtSlide
+          baeckereiSlug={slug}
+          produktPromotion={daten.produktPromotion}
+          ankuendigungen={daten.ankuendigungen}
+          {...logos}
+        />
+      </Slideshow>
+    </div>
   );
 }

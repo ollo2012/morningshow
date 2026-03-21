@@ -33,20 +33,20 @@ export default function Slide({
     <section
       id={id}
       className={cn(
-        "flex h-full w-full shrink-0 snap-center bg-background",
+        "flex h-full w-full shrink-0 snap-center p-2 sm:p-3",
         className
       )}
     >
       {/* Rounded box wrapping the entire slide content */}
-      <div className="flex flex-1 flex-col overflow-hidden bg-card px-5 py-3 sm:px-8 sm:py-4 md:px-10 md:py-5">
+      <div className="flex flex-1 flex-col overflow-hidden rounded-2xl bg-white shadow-lg px-5 py-3 sm:px-8 sm:py-4 md:px-10 md:py-5">
         {/* Header row: title left, logos right */}
         <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
           <div className="space-y-1">
-            <h2 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
+            <h2 className="font-heading text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
               {titel}
             </h2>
             {untertitel && (
-              <p className="text-lg text-muted-foreground sm:text-xl md:text-2xl">
+              <p className="text-lg text-muted-foreground sm:text-xl md:text-2xl mb-4">
                 {untertitel}
               </p>
             )}
@@ -64,8 +64,8 @@ export default function Slide({
             <Image
               src={firmenLogo}
               alt="Firmenlogo"
-              width={64}
-              height={64}
+              width={128}
+              height={128}
               className="h-12 w-auto sm:h-16 md:h-20 object-contain"
             />
             <span className="text-sm font-medium text-muted-foreground sm:text-base md:text-lg">
@@ -74,8 +74,8 @@ export default function Slide({
             <Image
               src={baeckereiLogo}
               alt={`${baeckereiName} Logo`}
-              width={64}
-              height={64}
+              width={128}
+              height={128}
               className="h-12 w-auto sm:h-16 md:h-20 object-contain"
             />
           </div>

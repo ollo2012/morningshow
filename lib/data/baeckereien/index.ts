@@ -9,6 +9,7 @@ import ankuendigungenJazzback from "@/data/baeckereien/jazzback/ankuendigungen.j
 export interface BaeckereiDaten {
   name: string;
   logo: string;
+  theme?: Record<string, string>;
   produktPromotion: ProduktPromotionData;
   ankuendigungen: AnkuendigungenData;
 }
@@ -20,13 +21,13 @@ export const firmenLogo = "/logos/BAEKO-Logo.png";
 export const baeckereien: Record<string, BaeckereiDaten> = {
   knülle: {
     name: "Bäckerei Knülle",
-    logo: "/logos/bakery_knuelle.jpg",
+    logo: "/logos/knuelle.png",
     produktPromotion: produktPromotionKnulle as ProduktPromotionData,
     ankuendigungen: { ankuendigungen: ankuendigungenKnulle } as AnkuendigungenData,
   },
   jazzback: {
     name: "Jazzback",
-    logo: "/logos/jazzback.svg",
+    logo: "/logos/jazzback.png",
     produktPromotion: produktPromotionJazzback as ProduktPromotionData,
     ankuendigungen: { ankuendigungen: ankuendigungenJazzback } as AnkuendigungenData,
   },

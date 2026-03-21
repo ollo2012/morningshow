@@ -24,7 +24,7 @@ export type ProduktStatus = "neu" | "eingestellt" | "überarbeitet";
 export interface Produkt {
   name: string;
   beschreibung: string;
-  preis: string;
+  preis?: string;
   status?: ProduktStatus;
   allergene?: Allergen[];
   naehrwerte?: Naehrwerte;

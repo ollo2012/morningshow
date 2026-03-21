@@ -58,10 +58,12 @@ export default async function SlidePage({
                 {produkt.allergene && produkt.allergene.length > 0 && (
                   <AllergenBadges allergene={produkt.allergene} />
                 )}
-                <div className="flex items-center justify-between">
-                  <span className="text-xs text-muted-foreground">Preis</span>
-                  <span className="text-xl font-bold">{produkt.preis}</span>
-                </div>
+                {produkt.preis && (
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs text-muted-foreground">Preis</span>
+                    <span className="text-xl font-bold">{produkt.preis}</span>
+                  </div>
+                )}
               </CardContent>
             </Card>
           ))}
@@ -164,9 +166,10 @@ export default async function SlidePage({
             <Image
               src={daten.logo}
               alt={`${daten.name} Logo`}
-              width={32}
-              height={32}
+              width={128}
+              height={128}
               className="h-8 w-auto object-contain"
+              quality={100}
             />
           </div>
         </div>
@@ -178,9 +181,10 @@ export default async function SlidePage({
           <Image
             src={firmenLogo}
             alt="Firmenlogo"
-            width={48}
-            height={48}
+            width={128}
+            height={128}
             className="h-10 w-auto object-contain"
+            quality={100}
           />
           <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">{titel}</h1>
         </div>

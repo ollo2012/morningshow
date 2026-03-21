@@ -32,7 +32,7 @@ export default async function ProduktDetailPage({
   if (!produkt) notFound();
 
   return (
-    <div className="h-screen">
+    <div className="bakery-theme h-screen" style={daten.theme as React.CSSProperties}>
       <Slide
         titel={produkt.name}
         untertitel={daten.produktPromotion.titel}
@@ -43,73 +43,76 @@ export default async function ProduktDetailPage({
 
         className="flex-1"
       >
-        <div className="space-y-4">
-          <div className="flex items-center gap-2">
-            {produkt.status && <ProduktStatusBadge status={produkt.status} />}
-            <span className="text-3xl font-bold">{produkt.preis}</span>
+        <div className="flex items-center gap-2 py-6">
+          {produkt.status && <ProduktStatusBadge status={produkt.status} />}
+          {produkt.preis && <span className="text-3xl font-bold">{produkt.preis}</span>}
+        </div>
+        <div className="grid grid-cols-2 gap-6">
+          {/* Left column */}
+          <div className="space-y-4">
+
+            <Card>
+              <CardHeader>
+                <CardTitle className="text-base">Beschreibung</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-lg leading-relaxed">{produkt.beschreibung}</p>
+              </CardContent>
+            </Card>
+
+            {produkt.allergene && produkt.allergene.length > 0 && (
+              <Card>
+                <CardHeader>
+                  <CardTitle className="text-base">Allergene</CardTitle>
+                </CardHeader>
+                <CardContent className="pb-4">
+                  <AllergenBadges allergene={produkt.allergene} />
+                </CardContent>
+              </Card>
+            )}
+
+            {produkt.naehrwerte && (
+              <Card>
+                <CardHeader>
+                  <CardTitle className="text-base">
+                    Nährwerte pro {produkt.naehrwerte.portionsgroesse}
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <table className="w-full text-sm">
+                    <tbody className="divide-y">
+                      {[
+                        { label: "Kalorien", value: produkt.naehrwerte.kalorien },
+                        { label: "Kohlenhydrate", value: produkt.naehrwerte.kohlenhydrate },
+                        { label: "davon Zucker", value: produkt.naehrwerte.davonZucker, indent: true },
+                        { label: "Fett", value: produkt.naehrwerte.fett },
+                        { label: "davon gesättigt", value: produkt.naehrwerte.davonGesaettigt, indent: true },
+                        { label: "Eiweiß", value: produkt.naehrwerte.eiweiss },
+                        { label: "Salz", value: produkt.naehrwerte.salz },
+                      ].map(({ label, value, indent }) => (
+                        <tr key={label}>
+                          <td className={`py-1.5 text-muted-foreground ${indent ? "pl-4" : ""}`}>{label}</td>
+                          <td className="py-1.5 text-right font-medium">{value}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </CardContent>
+              </Card>
+            )}
           </div>
 
-          <Card>
-            <CardHeader>
-              <CardTitle className="text-base text-muted-foreground">Beschreibung</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-base leading-relaxed">{produkt.beschreibung}</p>
-            </CardContent>
-          </Card>
-
-          {produkt.allergene && produkt.allergene.length > 0 && (
-            <Card>
-              <CardHeader>
-                <CardTitle className="text-base text-muted-foreground">Allergene</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <AllergenBadges allergene={produkt.allergene} />
-              </CardContent>
-            </Card>
-          )}
-
-          {produkt.naehrwerte && (
-            <Card>
-              <CardHeader>
-                <CardTitle className="text-base text-muted-foreground">
-                  Nährwerte pro {produkt.naehrwerte.portionsgroesse}
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <table className="w-full text-sm">
-                  <tbody className="divide-y">
-                    {[
-                      { label: "Kalorien", value: produkt.naehrwerte.kalorien },
-                      { label: "Kohlenhydrate", value: produkt.naehrwerte.kohlenhydrate },
-                      { label: "davon Zucker", value: produkt.naehrwerte.davonZucker, indent: true },
-                      { label: "Fett", value: produkt.naehrwerte.fett },
-                      { label: "davon gesättigt", value: produkt.naehrwerte.davonGesaettigt, indent: true },
-                      { label: "Eiweiß", value: produkt.naehrwerte.eiweiss },
-                      { label: "Salz", value: produkt.naehrwerte.salz },
-                    ].map(({ label, value, indent }) => (
-                      <tr key={label}>
-                        <td className={`py-1.5 text-muted-foreground ${indent ? "pl-4" : ""}`}>{label}</td>
-                        <td className="py-1.5 text-right font-medium">{value}</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </CardContent>
-            </Card>
-          )}
-
-          <Card>
-            <CardContent className="pt-6">
+          {/* Right column */}
+          <div>
+            <div className="relative aspect-square w-full overflow-hidden rounded-xl">
               <Image
                 src={PRODUKT_BILDER[Number(index) % PRODUKT_BILDER.length]}
                 alt={produkt.name}
-                width={600}
-                height={400}
-                className="w-full rounded-lg object-cover"
+                fill
+                className="object-cover"
               />
-            </CardContent>
-          </Card>
+            </div>
+          </div>
         </div>
       </Slide>
     </div>

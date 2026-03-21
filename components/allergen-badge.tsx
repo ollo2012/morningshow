@@ -36,7 +36,7 @@ export function AllergenBadges({ allergene }: { allergene: Allergen[] }) {
           <span
             key={allergen}
             title={config.label}
-            className="inline-flex items-center gap-1 rounded-full bg-muted px-2 py-0.5 text-xs text-muted-foreground"
+            className="inline-flex items-center gap-1 rounded-full bg-muted px-2 py-0.5 text-muted-foreground font-bold"
           >
             <Icon className="h-3 w-3" />
             {config.label}

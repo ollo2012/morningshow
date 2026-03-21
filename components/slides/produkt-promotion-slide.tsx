@@ -50,11 +50,11 @@ export default function ProduktPromotionSlide({
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-2">
-                  <div className="flex items-start justify-between gap-4">
-                    <p className="text-base text-muted-foreground sm:text-xl w-4/6">
+                  <div className="flex items-center justify-between gap-4">
+                    <p className="text-base text-muted-foreground pt-4 pb-2 sm:text-xl w-4/6">
                       {produkt.beschreibung}
                     </p>
-                    <span className="shrink-0 font-semibold text-2xl">{produkt.preis}</span>
+                     {<span className="shrink-0 font-semibold text-3xl flex items-center">{produkt.preis}</span>}
                   </div>
                   {produkt.allergene && produkt.allergene.length > 0 && (
                     <AllergenBadges allergene={produkt.allergene} />

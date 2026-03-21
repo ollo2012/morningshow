@@ -36,7 +36,7 @@ export default async function AnkuendigungDetailPage({
   });
 
   return (
-    <div className="h-screen">
+    <div className="bakery-theme h-screen" style={daten.theme as React.CSSProperties}>
       <Slide
         titel={item.titel}
         untertitel="Ankündigung"
@@ -45,37 +45,52 @@ export default async function AnkuendigungDetailPage({
         baeckereiLogo={daten.logo}
         baeckereiName={daten.name}
       >
-        <div className="space-y-4">
-          <div className="flex items-center gap-2">
-            {item.icon && <AnkuendigungIcon icon={item.icon} className="h-6 w-6" />}
-            {item.wichtig && <Badge variant="destructive">WICHTIG</Badge>}
+        <div className="grid grid-cols-2 gap-6">
+          {/* Left column */}
+          <div className="space-y-4">
+            {item.wichtig && (
+              <div>
+                <Badge variant="destructive">WICHTIG</Badge>
+              </div>
+            )}
+
+            <Card className={item.wichtig ? "border-destructive/40 bg-destructive/5" : ""}>
+              <CardHeader>
+                <CardTitle className="text-base text-muted-foreground">Inhalt</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-lg leading-relaxed">{item.inhalt}</p>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardHeader>
+                <CardTitle className="text-base text-muted-foreground">Datum</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-2xl font-semibold">{datum}</p>
+              </CardContent>
+            </Card>
           </div>
 
-          {item.bild && (
-            <AnkuendigungImage
-              bild={item.bild}
-              alt={item.titel}
-              className="h-40 w-full rounded-lg"
-            />
-          )}
-
-          <Card className={item.wichtig ? "border-destructive/40 bg-destructive/5" : ""}>
-            <CardHeader>
-              <CardTitle className="text-base text-muted-foreground">Inhalt</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-base leading-relaxed">{item.inhalt}</p>
-            </CardContent>
-          </Card>
-
-          <Card>
-            <CardHeader>
-              <CardTitle className="text-base text-muted-foreground">Datum</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-2xl font-semibold">{datum}</p>
-            </CardContent>
-          </Card>
+          {/* Right column */}
+          <div>
+            {item.bild ? (
+              <AnkuendigungImage
+                bild={item.bild}
+                alt={item.titel}
+                className="w-full rounded-xl aspect-square object-cover"
+              />
+            ) : (
+              <div className="flex aspect-square w-full items-center justify-center rounded-xl bg-muted">
+                {item.icon ? (
+                  <AnkuendigungIcon icon={item.icon} className="h-24 w-24 text-muted-foreground" />
+                ) : (
+                  <span className="text-8xl">📢</span>
+                )}
+              </div>
+            )}
+          </div>
         </div>
       </Slide>
     </div>
