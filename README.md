@@ -18,6 +18,15 @@ Create a file named `data/auth.json` in your project root with the following con
 ]
 ```
 
+Create also a .env.local file
+
+```bash
+NEXTAUTH_SECRET="any-long-random-string-here-at-least-32-chars"
+NEXTAUTH_URL="http://localhost:3000"
+SYNC_TOKEN="sync-token-123"
+MISTRAL_API_KEY="token"
+```
+
 First, run the development server:
 
 ```bash
