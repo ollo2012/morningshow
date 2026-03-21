@@ -60,3 +60,38 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: "Save failed" }, { status: 500 });
   }
 }
+
+export async function DELETE(req: Request) {
+  const session = await getServerSession(authOptions);
+
+  if (!session) {
+    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  }
+
+  try {
+    const { searchParams } = new URL(req.url);
+    const id = searchParams.get("id");
+
+    if (!id) {
+      return NextResponse.json({ error: "ID is required" }, { status: 400 });
+    }
+
+    ensureFile();
+    const fileData = fs.readFileSync(filePath, "utf8");
+    let announcements = JSON.parse(fileData);
+
+    const exists = announcements.find((item: any) => item.id === id);
+    if (!exists) {
+      return NextResponse.json({ error: "Announcement not found" }, { status: 404 });
+    }
+
+    const filteredAnnouncements = announcements.filter((item: any) => item.id !== id);
+
+    fs.writeFileSync(filePath, JSON.stringify(filteredAnnouncements, null, 2));
+
+    return NextResponse.json({ message: "Announcement deleted" });
+  } catch (error) {
+    console.error("Failed to delete announcement:", error);
+    return NextResponse.json({ error: "Delete failed" }, { status: 500 });
+  }
+}
