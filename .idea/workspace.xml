@@ -4,12 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="18e73f8f-3569-404e-8fdb-9d5935600940" name="Changes" comment="add baeko logo">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/[baeckerei]/[slide]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/[baeckerei]/[slide]/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/slides/produkt-promotion-slide.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/slides/produkt-promotion-slide.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/data/baeckereien/jazzback.ts" beforeDir="false" afterPath="$PROJECT_DIR$/lib/data/baeckereien/jazzback.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/data/baeckereien/knuelle.ts" beforeDir="false" afterPath="$PROJECT_DIR$/lib/data/baeckereien/knuelle.ts" afterDir="false" />
+    <list default="true" id="18e73f8f-3569-404e-8fdb-9d5935600940" name="Changes" comment="add product images">
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -138,7 +134,15 @@
       <option name="project" value="LOCAL" />
       <updated>1774103645905</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="add product images">
+      <option name="closed" value="true" />
+      <created>1774105071811</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1774105071811</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -152,7 +156,8 @@
     <MESSAGE value="new layout for slide and logos" />
     <MESSAGE value="add caffeine layout" />
     <MESSAGE value="add baeko logo" />
-    <option name="LAST_COMMIT_MESSAGE" value="add baeko logo" />
+    <MESSAGE value="add product images" />
+    <option name="LAST_COMMIT_MESSAGE" value="add product images" />
   </component>
   <component name="github-copilot-workspace">
     <instructionFileLocations>

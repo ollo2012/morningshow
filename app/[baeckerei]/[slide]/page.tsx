@@ -10,6 +10,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { AllergenBadges } from "@/components/allergen-badge";
 
 export function generateStaticParams() {
   const slugs = ["motivation", "produkt-promotion", "ankuendigungen"];
@@ -90,6 +91,9 @@ export default async function SlidePage({
                 <p className="text-sm leading-relaxed text-muted-foreground">
                   {produkt.beschreibung}
                 </p>
+                {produkt.allergene && produkt.allergene.length > 0 && (
+                  <AllergenBadges allergene={produkt.allergene} />
+                )}
                 <div className="flex items-center justify-between">
                   <span className="text-xs text-muted-foreground">Preis</span>
                   <span className="text-xl font-bold">{produkt.preis}</span>

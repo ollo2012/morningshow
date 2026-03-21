@@ -7,6 +7,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { AllergenBadges } from "@/components/allergen-badge";
 import type { ProduktPromotionData } from "@/lib/data/produkt-promotion";
 import type { SlideLogos } from "@/components/slides/types";
 
@@ -51,11 +52,16 @@ export default function ProduktPromotionSlide({
                     {produkt.neu && <Badge>NEU</Badge>}
                   </CardTitle>
                 </CardHeader>
-                <CardContent className="flex items-start justify-between gap-4">
-                  <p className="text-sm text-muted-foreground">
-                    {produkt.beschreibung}
-                  </p>
-                  <span className="shrink-0 font-semibold">{produkt.preis}</span>
+                <CardContent className="space-y-2">
+                  <div className="flex items-start justify-between gap-4">
+                    <p className="text-sm text-muted-foreground">
+                      {produkt.beschreibung}
+                    </p>
+                    <span className="shrink-0 font-semibold">{produkt.preis}</span>
+                  </div>
+                  {produkt.allergene && produkt.allergene.length > 0 && (
+                    <AllergenBadges allergene={produkt.allergene} />
+                  )}
                 </CardContent>
               </div>
             </div>

@@ -20,6 +20,7 @@ export const produktPromotion: ProduktPromotionData = {
       preis: "3,80 €",
       neu: true,
       bild: "/images/produkte/blueberry-cheesecake.svg",
+      allergene: ["gluten", "milch", "ei"],
     },
     {
       name: "Sourdough Jazz Loaf",
@@ -28,6 +29,7 @@ export const produktPromotion: ProduktPromotionData = {
       preis: "5,50 €",
       neu: true,
       bild: "/images/produkte/sourdough-jazz.svg",
+      allergene: ["gluten", "sesam"],
     },
     {
       name: "Espresso-Walnuss Brownie",
@@ -36,6 +38,7 @@ export const produktPromotion: ProduktPromotionData = {
       preis: "2,90 €",
       neu: false,
       bild: "/images/produkte/espresso-brownie.svg",
+      allergene: ["gluten", "milch", "ei", "nüsse"],
     },
     {
       name: "Zimt-Kardamom Schnecke",
@@ -44,6 +47,7 @@ export const produktPromotion: ProduktPromotionData = {
       preis: "2,50 €",
       neu: false,
       bild: "/images/produkte/zimt-kardamom.svg",
+      allergene: ["gluten", "milch", "ei"],
     },
   ],
 };

@@ -20,6 +20,7 @@ export const produktPromotion: ProduktPromotionData = {
       preis: "4,90 €",
       neu: true,
       bild: "/images/produkte/landbrot.svg",
+      allergene: ["gluten", "nüsse"],
     },
     {
       name: 'Buttercroissant „Goldstück"',
@@ -28,6 +29,7 @@ export const produktPromotion: ProduktPromotionData = {
       preis: "2,20 €",
       neu: true,
       bild: "/images/produkte/buttercroissant.svg",
+      allergene: ["gluten", "milch", "ei"],
     },
     {
       name: "Dinkel-Vollkorn Brötchen",
@@ -36,6 +38,7 @@ export const produktPromotion: ProduktPromotionData = {
       preis: "0,95 €",
       neu: false,
       bild: "/images/produkte/dinkel-vollkorn.svg",
+      allergene: ["gluten"],
     },
   ],
 };
