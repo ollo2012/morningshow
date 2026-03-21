@@ -17,7 +17,7 @@ export const produktPromotion: ProduktPromotionData = {
       // Tonalität: Knapp und einladendes "Du" gemäß externer Strategie
       beschreibung: "Probier mal unseren leckeren Karottenkuchen mit feinem Frosting. Handwerk, das du schmeckst! Passt perfekt zum Sonntagskaffee.",
       preis: "4,90 € / Stück",
-      neu: true,
+      status: true,
       allergene: ["gluten", "ei", "milch", "nüsse"],
       naehrwerte: {
         portionsgroesse: "100 g",

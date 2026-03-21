@@ -19,12 +19,13 @@ export interface Naehrwerte {
   portionsgroesse: string;
 }
 
+export type ProduktStatus = "neu" | "eingestellt" | "überarbeitet";
+
 export interface Produkt {
   name: string;
   beschreibung: string;
   preis: string;
-  neu: boolean;
-  bild?: string;
+  status?: ProduktStatus;
   allergene?: Allergen[];
   naehrwerte?: Naehrwerte;
 }

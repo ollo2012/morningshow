@@ -10,6 +10,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { ProduktStatusBadge } from "@/components/produkt-status-badge";
 import { AllergenBadges } from "@/components/allergen-badge";
 
 export function generateStaticParams() {
@@ -44,20 +45,10 @@ export default async function SlidePage({
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {produkte.map((produkt) => (
             <Card key={produkt.name} className="flex flex-col overflow-hidden">
-              {produkt.bild && (
-                <div className="relative h-40 w-full">
-                  <Image
-                    src={produkt.bild}
-                    alt={produkt.name}
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-              )}
               <CardHeader>
                 <CardTitle className="flex items-start justify-between gap-2">
                   <span>{produkt.name}</span>
-                  {produkt.neu && <Badge className="shrink-0">NEU</Badge>}
+                  {produkt.status && <ProduktStatusBadge status={produkt.status} />}
                 </CardTitle>
               </CardHeader>
               <CardContent className="flex flex-1 flex-col justify-between gap-4">

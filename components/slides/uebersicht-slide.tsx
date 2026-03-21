@@ -9,6 +9,7 @@ import {
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { AnkuendigungIcon, AnkuendigungImage } from "@/components/ankuendigung-visual";
+import { ProduktStatusBadge } from "@/components/produkt-status-badge";
 import type { SlideLogos } from "@/components/slides/types";
 import type { ProduktPromotionData } from "@/lib/data/produkt-promotion";
 import type { AnkuendigungenData } from "@/lib/data/ankuendigungen";
@@ -54,7 +55,7 @@ export default function UebersichtSlide({
           </h3>
           <div className="space-y-2">
             {produktPromotion.produkte.map((produkt, i) => {
-              const bildSrc = produkt.bild ?? PRODUKT_BILDER[i % PRODUKT_BILDER.length];
+              const bildSrc = PRODUKT_BILDER[i % PRODUKT_BILDER.length];
               return (
                 <Link key={i} href={`/${baeckereiSlug}/produkt/${i}`}>
                   <Card className="mb-4 cursor-pointer overflow-hidden transition-colors hover:bg-accent hover:text-accent-foreground">
@@ -72,7 +73,7 @@ export default function UebersichtSlide({
                           <CardTitle className="flex items-center justify-between gap-2 text-lg sm:text-xl">
                             <span>{produkt.name}</span>
                             <div className="flex items-center gap-2 shrink-0">
-                              {produkt.neu && <Badge>NEU</Badge>}
+                              {produkt.status && <ProduktStatusBadge status={produkt.status} />}
                               <span className="font-semibold">{produkt.preis}</span>
                             </div>
                           </CardTitle>

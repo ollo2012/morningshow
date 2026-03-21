@@ -9,8 +9,7 @@ export const produktPromotion: ProduktPromotionData = {
       beschreibung:
         "Cremiger Cheesecake trifft auf saftigen Blaubeerstrudel – unser neues Signature-Stück.",
       preis: "3,80 €",
-      neu: true,
-      bild: "/images/produkte/blueberry-cheesecake.svg",
+      status: "neu" as const,
       allergene: ["gluten", "milch", "ei"],
     },
     {
@@ -18,8 +17,7 @@ export const produktPromotion: ProduktPromotionData = {
       beschreibung:
         "48-Stunden Sauerteig mit geröstetem Sesam und Meersalzkruste.",
       preis: "5,50 €",
-      neu: true,
-      bild: "/images/produkte/sourdough-jazz.svg",
+      status: "neu" as const,
       allergene: ["gluten", "sesam"],
     },
     {
@@ -27,8 +25,6 @@ export const produktPromotion: ProduktPromotionData = {
       beschreibung:
         "Intensiver Kakao mit echtem Espresso – der perfekte Nachmittagskick.",
       preis: "2,90 €",
-      neu: false,
-      bild: "/images/produkte/espresso-brownie.svg",
       allergene: ["gluten", "milch", "ei", "nüsse"],
     },
     {
@@ -36,8 +32,6 @@ export const produktPromotion: ProduktPromotionData = {
       beschreibung:
         "Fluffiger Hefeteig mit orientalischer Gewürznote – warm am besten!",
       preis: "2,50 €",
-      neu: false,
-      bild: "/images/produkte/zimt-kardamom.svg",
       allergene: ["gluten", "milch", "ei"],
     },
   ],

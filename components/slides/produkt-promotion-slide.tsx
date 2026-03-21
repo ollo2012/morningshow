@@ -6,7 +6,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
+import { ProduktStatusBadge } from "@/components/produkt-status-badge";
 import { AllergenBadges } from "@/components/allergen-badge";
 import type { ProduktPromotionData } from "@/lib/data/produkt-promotion";
 import type { SlideLogos } from "@/components/slides/types";
@@ -47,7 +47,7 @@ export default function ProduktPromotionSlide({
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2">
                     {produkt.name}
-                    {produkt.neu && <Badge>NEU</Badge>}
+                    {produkt.status && <ProduktStatusBadge status={produkt.status} />}
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-2">

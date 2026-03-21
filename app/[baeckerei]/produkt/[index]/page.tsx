@@ -11,7 +11,7 @@ const PRODUKT_BILDER = [
   "/images/produkte/zimt-kardamom.svg",
 ];
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
+import { ProduktStatusBadge } from "@/components/produkt-status-badge";
 import Slide from "@/components/slide";
 import { AllergenBadges } from "@/components/allergen-badge";
 import Image from "next/image";
@@ -54,7 +54,7 @@ export default async function ProduktDetailPage({
       >
         <div className="space-y-4">
           <div className="flex items-center gap-2">
-            {produkt.neu && <Badge>NEU</Badge>}
+            {produkt.status && <ProduktStatusBadge status={produkt.status} />}
             <span className="text-3xl font-bold">{produkt.preis}</span>
           </div>
 
