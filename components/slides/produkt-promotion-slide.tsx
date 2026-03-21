@@ -20,7 +20,6 @@ export default function ProduktPromotionSlide({
   firmenLogo,
   baeckereiLogo,
   baeckereiName,
-  hintergrundFarbe,
 }: ProduktPromotionSlideProps) {
   return (
     <Slide
@@ -29,7 +28,6 @@ export default function ProduktPromotionSlide({
       firmenLogo={firmenLogo}
       baeckereiLogo={baeckereiLogo}
       baeckereiName={baeckereiName}
-      hintergrundFarbe={hintergrundFarbe}
     >
       <div className="space-y-4">
         {data.produkte.map((produkt) => (

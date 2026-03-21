@@ -18,7 +18,6 @@ export default function AnkuendigungenSlide({
   firmenLogo,
   baeckereiLogo,
   baeckereiName,
-  hintergrundFarbe,
 }: AnkuendigungenSlideProps) {
   return (
     <Slide
@@ -27,7 +26,6 @@ export default function AnkuendigungenSlide({
       firmenLogo={firmenLogo}
       baeckereiLogo={baeckereiLogo}
       baeckereiName={baeckereiName}
-      hintergrundFarbe={hintergrundFarbe}
     >
       <div className="space-y-4">
         {data.ankuendigungen.map((item) => (

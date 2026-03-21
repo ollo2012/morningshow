@@ -7,7 +7,7 @@ interface SlideProps {
   firmenLogo: string;
   baeckereiLogo: string;
   baeckereiName: string;
-  hintergrundFarbe?: string;
+
   children: React.ReactNode;
   className?: string;
   contentClassName?: string;
@@ -20,7 +20,6 @@ export default function Slide({
   firmenLogo,
   baeckereiLogo,
   baeckereiName,
-  hintergrundFarbe = "#e0f2fe",
   children,
   className,
   contentClassName,
@@ -29,9 +28,8 @@ export default function Slide({
   return (
     <section
       id={id}
-      style={{ backgroundColor: hintergrundFarbe }}
       className={cn(
-        "flex h-full w-full shrink-0 snap-center p-3 sm:p-5 md:p-8",
+        "flex h-full w-full shrink-0 snap-center bg-background p-3 sm:p-5 md:p-8",
         className
       )}
     >

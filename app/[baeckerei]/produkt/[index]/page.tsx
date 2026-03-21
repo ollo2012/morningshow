@@ -38,7 +38,7 @@ export default async function ProduktDetailPage({
         firmenLogo={firmenLogo}
         baeckereiLogo={daten.logo}
         baeckereiName={daten.name}
-        hintergrundFarbe={daten.hintergrundFarbe}
+
         className="flex-1"
       >
         <div className="space-y-4">

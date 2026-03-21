@@ -24,7 +24,6 @@ export default function UebersichtSlide({
   firmenLogo,
   baeckereiLogo,
   baeckereiName,
-  hintergrundFarbe,
 }: UebersichtSlideProps) {
   return (
     <Slide
@@ -34,7 +33,6 @@ export default function UebersichtSlide({
       firmenLogo={firmenLogo}
       baeckereiLogo={baeckereiLogo}
       baeckereiName={baeckereiName}
-      hintergrundFarbe={hintergrundFarbe}
     >
       <div className="flex flex-col gap-6">
         {/* Produkte */}
