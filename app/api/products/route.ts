@@ -50,7 +50,7 @@ export async function POST(req: Request) {
       title,
       text,
       date,
-      author: session.user?.name || "Unknown"
+      author: session?.user?.name || "Unknown"
     };
 
     products.push(newEntry);
