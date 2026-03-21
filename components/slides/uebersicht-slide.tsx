@@ -47,11 +47,11 @@ export default function UebersichtSlide({
           <h3 className="text-sm font-semibold uppercase tracking-wider text-muted-foreground">
             Produkte
           </h3>
-          <div className="flex flex-wrap gap-3">
+          <div className="grid grid-cols-3 gap-3">
             {produktPromotion.produkte.map((produkt, i) => (
               <Link key={i} href={`/${baeckereiSlug}/produkt/${i}`}>
-                <div className="group flex h-44 w-28 cursor-pointer flex-col overflow-hidden rounded-xl border bg-card transition-colors hover:bg-accent sm:h-48 sm:w-32">
-                  <div className="relative h-24 w-full sm:h-28">
+                <div className="group flex h-20 cursor-pointer overflow-hidden rounded-xl border bg-card transition-colors hover:bg-accent sm:h-24">
+                  <div className="relative h-full w-20 shrink-0 sm:w-24">
                     <Image
                       src={PRODUKT_BILDER[i % PRODUKT_BILDER.length]}
                       alt={produkt.name}
@@ -59,8 +59,8 @@ export default function UebersichtSlide({
                       className="object-cover"
                     />
                   </div>
-                  <div className="flex flex-col gap-1 p-2">
-                    <span className="line-clamp-2 text-xs font-semibold leading-tight">
+                  <div className="flex flex-col justify-center gap-1 p-2">
+                    <span className="line-clamp-2 text-2xl font-semibold leading-tight">
                       {produkt.name}
                     </span>
                     {produkt.status && (
@@ -78,23 +78,23 @@ export default function UebersichtSlide({
           <h3 className="text-sm font-semibold uppercase tracking-wider text-muted-foreground">
             Ankündigungen
           </h3>
-          <div className="flex flex-wrap gap-3">
+          <div className="grid grid-cols-3 gap-3">
             {ankuendigungen.ankuendigungen.map((item, i) => (
               <Link key={i} href={`/${baeckereiSlug}/ankuendigung/${i}`}>
                 <div
-                  className={`group flex h-44 w-28 cursor-pointer flex-col overflow-hidden rounded-xl border bg-card transition-colors hover:bg-accent sm:h-48 sm:w-32 ${
+                  className={`group flex h-20 cursor-pointer overflow-hidden rounded-xl border bg-card transition-colors hover:bg-accent sm:h-24 ${
                     item.wichtig ? "border-destructive/40 bg-destructive/5" : ""
                   }`}
                 >
-                  <div className="flex h-24 w-full items-center justify-center bg-muted sm:h-28">
+                  <div className="flex h-full w-20 shrink-0 items-center justify-center bg-muted sm:w-24">
                     {item.icon ? (
-                      <AnkuendigungIcon icon={item.icon} className="h-10 w-10 text-muted-foreground" />
+                      <AnkuendigungIcon icon={item.icon} className="h-12 w-12 text-muted-foreground" />
                     ) : (
-                      <span className="text-3xl">📢</span>
+                      <span className="text-4xl">📢</span>
                     )}
                   </div>
-                  <div className="flex flex-col gap-1 p-2">
-                    <span className="line-clamp-2 text-xs font-semibold leading-tight">
+                  <div className="flex flex-col justify-center gap-1 p-2">
+                    <span className="line-clamp-2 text-2xl font-semibold leading-tight">
                       {item.titel}
                     </span>
                     {item.wichtig && (
