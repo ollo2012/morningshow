@@ -37,6 +37,7 @@ next-env.d.ts
 
 # IDE
 .vscode
+.node-version
 
 # Project specific data
 /data
