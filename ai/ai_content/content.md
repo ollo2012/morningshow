@@ -49,3 +49,8 @@
 	- inhalt: krank, bis ende der Woche
 	- datum 2026-04-8
 	- wichtig ja
+- ankeundigungen:
+	- titel: Teamevent
+	- inhalt: Bäckerei zu. Treffpunkt 12:00Uhr an der backstube. Abendessen 20:00Uhr Restaurant "Napoli". Open End
+	- datum 2026-04-10
+	- wichtig ja
