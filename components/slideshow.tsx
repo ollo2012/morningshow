@@ -66,6 +66,18 @@ export default function Slideshow({
     [isHorizontal]
   );
 
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === (isHorizontal ? "ArrowRight" : "ArrowDown")) {
+        scrollToSlide(Math.min(aktuelleSlide + 1, slideCount - 1));
+      } else if (e.key === (isHorizontal ? "ArrowLeft" : "ArrowUp")) {
+        scrollToSlide(Math.max(aktuelleSlide - 1, 0));
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [aktuelleSlide, slideCount, isHorizontal, scrollToSlide]);
+
   return (
     <div className="relative flex h-screen flex-col">
       {/* Progress bar */}

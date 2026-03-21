@@ -5,18 +5,9 @@ import { Badge } from "@/components/ui/badge";
 import { AnkuendigungIcon } from "@/components/ankuendigung-visual";
 import { ProduktStatusBadge } from "@/components/produkt-status-badge";
 import type { SlideLogos } from "@/components/slides/types";
+import { PRODUKT_BILDER } from "@/lib/data/produkt-promotion";
 import type { ProduktPromotionData } from "@/lib/data/produkt-promotion";
 import type { AnkuendigungenData } from "@/lib/data/ankuendigungen";
-
-const PRODUKT_BILDER = [
-  "/images/produkte/landbrot.svg",
-  "/images/produkte/buttercroissant.svg",
-  "/images/produkte/dinkel-vollkorn.svg",
-  "/images/produkte/blueberry-cheesecake.svg",
-  "/images/produkte/espresso-brownie.svg",
-  "/images/produkte/sourdough-jazz.svg",
-  "/images/produkte/zimt-kardamom.svg",
-];
 
 interface UebersichtSlideProps extends SlideLogos {
   baeckereiSlug: string;

@@ -34,3 +34,16 @@ export interface ProduktPromotionData {
   titel: string;
   produkte: Produkt[];
 }
+
+export const PRODUKT_BILDER = [
+  "/images/produkte/ruebli.jpg",
+  "/images/produkte/lemon.jpg",
+  "/images/produkte/baguette.jpg",
+  "/images/produkte/landbrot.svg",
+  "/images/produkte/buttercroissant.svg",
+  "/images/produkte/dinkel-vollkorn.svg",
+  "/images/produkte/blueberry-cheesecake.svg",
+  "/images/produkte/espresso-brownie.svg",
+  "/images/produkte/sourdough-jazz.svg",
+  "/images/produkte/zimt-kardamom.svg",
+];

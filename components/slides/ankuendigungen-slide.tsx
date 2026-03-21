@@ -37,17 +37,24 @@ export default function AnkuendigungenSlide({
             }`}
           >
             <div className="flex">
-              {item.bild && (
+              {item.bild ? (
                 <AnkuendigungImage
                   bild={item.bild}
                   alt={item.titel}
-                  className="h-auto w-20 sm:w-24"
+                  className="h-auto w-48"
                 />
+              ) : (
+                <div className="flex h-auto w-48 shrink-0 items-center justify-center bg-muted">
+                  {item.icon ? (
+                    <AnkuendigungIcon icon={item.icon} className="h-10 w-10 text-muted-foreground" />
+                  ) : (
+                    <span className="text-4xl">📢</span>
+                  )}
+                </div>
               )}
-              <div className="flex-1">
+              <div className="flex-1 py-4">
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2">
-                    {item.icon && <AnkuendigungIcon icon={item.icon} className="h-5 w-5" />}
                     {item.titel}
                     {item.wichtig && <Badge variant="destructive">WICHTIG</Badge>}
                   </CardTitle>
@@ -60,7 +67,7 @@ export default function AnkuendigungenSlide({
                   </span>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-base text-muted-foreground sm:text-lg">{item.inhalt}</p>
+                  <p className="text-base text-muted-foreground sm:text-xl w-4/6">{item.inhalt}</p>
                 </CardContent>
               </div>
             </div>

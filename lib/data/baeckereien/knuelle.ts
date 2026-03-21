@@ -44,7 +44,7 @@ export const ankuendigungen: AnkuendigungenData = {
       inhalt: "Liebes Team, denkt bitte daran, unsere Kunden aktiv auf das Osterfest hinzuweisen. Lasst uns gemeinsam für volle Körbchen sorgen!",
       datum: "2026-04-08",
       wichtig: false,
-      bild: "/images/ankuendigungen/ostern.svg",
+      bild: "/images/ankuendigungen/easter.jpg",
     },
     {
       titel: "Brezeln nicht lieferbar",

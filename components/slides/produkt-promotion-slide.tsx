@@ -8,6 +8,7 @@ import {
 } from "@/components/ui/card";
 import { ProduktStatusBadge } from "@/components/produkt-status-badge";
 import { AllergenBadges } from "@/components/allergen-badge";
+import { PRODUKT_BILDER } from "@/lib/data/produkt-promotion";
 import type { ProduktPromotionData } from "@/lib/data/produkt-promotion";
 import type { SlideLogos } from "@/components/slides/types";
 
@@ -30,20 +31,18 @@ export default function ProduktPromotionSlide({
       baeckereiName={baeckereiName}
     >
       <div className="space-y-4">
-        {data.produkte.map((produkt) => (
+        {data.produkte.map((produkt, i) => (
           <Card key={produkt.name} className="overflow-hidden">
             <div className="flex">
-              {produkt.bild && (
-                <div className="relative h-auto w-24 shrink-0">
-                  <Image
-                    src={produkt.bild}
-                    alt={produkt.name}
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-              )}
-              <div className="flex-1">
+              <div className="relative h-auto w-48 shrink-0">
+                <Image
+                  src={PRODUKT_BILDER[i % PRODUKT_BILDER.length]}
+                  alt={produkt.name}
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <div className="flex-1 py-4">
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2">
                     {produkt.name}
@@ -52,10 +51,10 @@ export default function ProduktPromotionSlide({
                 </CardHeader>
                 <CardContent className="space-y-2">
                   <div className="flex items-start justify-between gap-4">
-                    <p className="text-base text-muted-foreground sm:text-lg">
+                    <p className="text-base text-muted-foreground sm:text-xl w-4/6">
                       {produkt.beschreibung}
                     </p>
-                    <span className="shrink-0 font-semibold">{produkt.preis}</span>
+                    <span className="shrink-0 font-semibold text-2xl">{produkt.preis}</span>
                   </div>
                   {produkt.allergene && produkt.allergene.length > 0 && (
                     <AllergenBadges allergene={produkt.allergene} />

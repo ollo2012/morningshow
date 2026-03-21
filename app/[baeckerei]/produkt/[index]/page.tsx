@@ -1,15 +1,6 @@
 import { notFound } from "next/navigation";
 import { baeckereien, firmenLogo } from "@/lib/data/baeckereien";
-
-const PRODUKT_BILDER = [
-  "/images/produkte/landbrot.svg",
-  "/images/produkte/buttercroissant.svg",
-  "/images/produkte/dinkel-vollkorn.svg",
-  "/images/produkte/blueberry-cheesecake.svg",
-  "/images/produkte/espresso-brownie.svg",
-  "/images/produkte/sourdough-jazz.svg",
-  "/images/produkte/zimt-kardamom.svg",
-];
+import { PRODUKT_BILDER } from "@/lib/data/produkt-promotion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ProduktStatusBadge } from "@/components/produkt-status-badge";
 import Slide from "@/components/slide";
