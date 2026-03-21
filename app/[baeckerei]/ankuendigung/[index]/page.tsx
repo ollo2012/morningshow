@@ -1,10 +1,9 @@
-import Image from "next/image";
-import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft } from "lucide-react";
 import { baeckereien, firmenLogo } from "@/lib/data/baeckereien";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import Slide from "@/components/slide";
+import BottomNav from "@/components/bottom-nav";
 
 export function generateStaticParams() {
   return Object.keys(baeckereien).flatMap((baeckerei) => {
@@ -37,55 +36,23 @@ export default async function AnkuendigungDetailPage({
   });
 
   return (
-    <div className="min-h-screen bg-muted/30">
-      <header className="sticky top-0 z-10 border-b bg-background/80 backdrop-blur">
-        <div className="mx-auto flex max-w-2xl items-center justify-between px-4 py-3 sm:px-6">
-          <Link
-            href={`/${baeckereiSlug}#uebersicht`}
-            className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
-          >
-            <ArrowLeft className="h-4 w-4" />
-            Zurück zur Übersicht
-          </Link>
-          <div className="flex items-center gap-3">
-            <span className="text-sm font-medium text-muted-foreground">
-              {daten.name}
-            </span>
-            <Image
-              src={daten.logo}
-              alt={`${daten.name} Logo`}
-              width={32}
-              height={32}
-              className="h-8 w-auto object-contain"
-            />
-          </div>
-        </div>
-      </header>
-
-      <main className="mx-auto max-w-2xl px-4 py-8 sm:px-6 sm:py-12">
-        <div className="mb-2 flex items-center gap-3">
-          <Image
-            src={firmenLogo}
-            alt="Firmenlogo"
-            width={40}
-            height={40}
-            className="h-8 w-auto object-contain"
-          />
-          <span className="text-sm text-muted-foreground">Ankündigungen</span>
-        </div>
-
-        <div className="mb-8 flex items-start justify-between gap-4">
-          <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">
-            {item.titel}
-          </h1>
-          {item.wichtig && (
-            <Badge variant="destructive" className="mt-1.5 shrink-0">
-              WICHTIG
-            </Badge>
-          )}
-        </div>
-
+    <div className="flex h-screen flex-col">
+      <Slide
+        titel={item.titel}
+        untertitel="Ankündigung"
+        firmenLogo={firmenLogo}
+        baeckereiLogo={daten.logo}
+        baeckereiName={daten.name}
+        hintergrundFarbe={daten.hintergrundFarbe}
+        className="flex-1"
+      >
         <div className="space-y-4">
+          {item.wichtig && (
+            <div>
+              <Badge variant="destructive">WICHTIG</Badge>
+            </div>
+          )}
+
           <Card className={item.wichtig ? "border-destructive/40 bg-destructive/5" : ""}>
             <CardHeader>
               <CardTitle className="text-base text-muted-foreground">Inhalt</CardTitle>
@@ -104,7 +71,8 @@ export default async function AnkuendigungDetailPage({
             </CardContent>
           </Card>
         </div>
-      </main>
+      </Slide>
+      <BottomNav backHref={`/${baeckereiSlug}#uebersicht`} />
     </div>
   );
 }

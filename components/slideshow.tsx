@@ -1,6 +1,7 @@
 "use client";
 
 import { Children, useCallback, useEffect, useRef, useState } from "react";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Progress } from "@/components/ui/progress";
 
@@ -42,24 +43,34 @@ export default function Slideshow({
   useEffect(() => {
     const el = containerRef.current;
     if (!el) return;
+    handleScroll();
     el.addEventListener("scroll", handleScroll, { passive: true });
     return () => el.removeEventListener("scroll", handleScroll);
   }, [handleScroll]);
 
-  // Derive current slide index from progress
   const aktuelleSlide = Math.min(
     Math.round((fortschritt / 100) * (slideCount - 1)),
     slideCount - 1
   );
 
+  const scrollToSlide = useCallback(
+    (index: number) => {
+      const el = containerRef.current;
+      if (!el) return;
+      if (isHorizontal) {
+        el.scrollTo({ left: index * el.clientWidth, behavior: "smooth" });
+      } else {
+        el.scrollTo({ top: index * el.clientHeight, behavior: "smooth" });
+      }
+    },
+    [isHorizontal]
+  );
+
   return (
     <div className="relative flex h-screen flex-col">
       {/* Progress bar */}
-      <div className="flex items-center gap-3 px-4 py-2 sm:px-6 md:px-10">
+      <div className="px-4 py-2 sm:px-6 md:px-10">
         <Progress value={fortschritt} className="h-2" />
-        <span className="shrink-0 text-xs tabular-nums text-muted-foreground">
-          {aktuelleSlide + 1}/{slideCount}
-        </span>
       </div>
 
       {/* Slides */}
@@ -75,6 +86,24 @@ export default function Slideshow({
       >
         {children}
       </div>
+
+      {/* Bottom nav */}
+      <nav className="flex items-center justify-center gap-6 px-4 py-3">
+        <button
+          onClick={() => scrollToSlide(aktuelleSlide - 1)}
+          disabled={aktuelleSlide === 0}
+          className="rounded-full bg-foreground p-2 text-background transition-opacity hover:opacity-80 disabled:opacity-20"
+        >
+          <ArrowLeft className="h-5 w-5" />
+        </button>
+        <button
+          onClick={() => scrollToSlide(aktuelleSlide + 1)}
+          disabled={aktuelleSlide === slideCount - 1}
+          className="rounded-full bg-foreground p-2 text-background transition-opacity hover:opacity-80 disabled:opacity-20"
+        >
+          <ArrowRight className="h-5 w-5" />
+        </button>
+      </nav>
     </div>
   );
 }
