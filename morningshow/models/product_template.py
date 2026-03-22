@@ -9,9 +9,12 @@ class ProductTemplate(models.Model):
 
     def action_send_to_morningshow(self):
         self.ensure_one()
-        # Your Morningshow API URL
-        url = "http://localhost:3000/api/products"
-        # Data to send
+        # Read from system settings
+        url = self.env['ir.config_parameter'].sudo().get_param('morningshow.api_url')
+        api_token = self.env['ir.config_parameter'].sudo().get_param('morningshow.api_token')
+        if not url or not api_token:
+            raise UserError("Morningshow API URL and Token must be set in settings.")
+        url = url + "/api/products"
         payload = {
             "title": self.name,
             "text": self.description_sale or "",
@@ -19,7 +22,7 @@ class ProductTemplate(models.Model):
         }
         headers = {
             'Content-Type': 'application/json',
-            'x-api-token': 'sync-token-123'
+            'x-api-token': api_token
         }
         try:
             response = requests.post(url, data=json.dumps(payload), headers=headers, timeout=10)
@@ -30,9 +33,9 @@ class ProductTemplate(models.Model):
                     'params': {
                         'title': 'Success',
                         'message': 'Your record has been uploaded successfully!',
-                        'type': 'success',  # options: 'success', 'warning', 'danger', 'info'
-                        'sticky': False,    # True means the user must click 'X' to close it
-                        'next': {           # Optional: what to do after the notification
+                        'type': 'success',
+                        'sticky': False,
+                        'next': {
                             'type': 'ir.actions.act_window_close'
                         },
                     }
