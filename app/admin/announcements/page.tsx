@@ -11,6 +11,7 @@ interface Announcement {
   date: string;
   author: string;
   importance: boolean;
+  outputtext?: string;
 }
 
 export default function AnnouncementsPage() {
@@ -22,6 +23,7 @@ export default function AnnouncementsPage() {
   const [text, setText] = useState("");
   const [loading, setLoading] = useState(false);
   const [importance, setImportance] = useState(false);
+  const [outputtext, setOutputtext] = useState("");
   const [deletingId, setDeletingId] = useState<string | null>(null); // Status für das Löschen
 
   useEffect(() => {
@@ -51,6 +53,7 @@ export default function AnnouncementsPage() {
         text,
         date: new Date().toLocaleDateString(),
         importance,
+        outputtext,
       }),
     });
 
@@ -104,14 +107,6 @@ export default function AnnouncementsPage() {
               className="w-full p-2 rounded border border-zinc-300 dark:border-zinc-700 dark:bg-zinc-800 dark:text-white"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
-            />
-            <textarea
-              placeholder="Inhalt..."
-              required
-              rows={4}
-              className="w-full p-2 rounded border border-zinc-300 dark:border-zinc-700 dark:bg-zinc-800 dark:text-white"
-              value={text}
-              onChange={(e) => setText(e.target.value)}
             />
             <label className="flex items-center gap-2">
               <input

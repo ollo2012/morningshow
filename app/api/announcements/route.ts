@@ -1,10 +1,14 @@
 import { NextResponse } from "next/server";
 import { getServerSession } from "next-auth/next";
-import { authOptions } from "@/lib/auth"; 
+import { authOptions } from "@/lib/auth";
+import { Mistral } from "@mistralai/mistralai";
+import settings from "@/data/settings.json";
 import fs from "fs";
 import path from "path";
 
 const filePath = path.join(process.cwd(), "data/announcements.json");
+const apiKey = process.env.MISTRAL_API_KEY;
+const client = new Mistral({ apiKey });
 
 // Helper to ensure directory and file exist
 const ensureFile = () => {
@@ -38,7 +42,51 @@ export async function POST(req: Request) {
   }
 
   try {
-    const { title, text, date, importance } = await req.json();
+    const { title, date, importance } = await req.json();
+    // Generate an AI output text
+    let text = title; // Initialize with original text in case AI fails
+    // Fetch context from settings.json
+    const settingsObj = Array.isArray(settings) ? settings[0] : settings;
+    const interneKommunikation = settingsObj.interne_kommunikation || "";
+    const unternehmensprofil = settingsObj.unternehmensprofil || "";
+    
+    const systemContext = `
+    Du willst eine 2 Sätze lange Ankündigung für unseren internen Kommunikationskanal erstellen.
+    Berücksichtige dabei immer, dass wir ggf. auch die Kunden informieren.
+    Du hast folgende Unternehmensrichtlinen zu beachten:
+    - Firmenprofil: ${unternehmensprofil}
+    - Interner Kommunikationsstil: ${interneKommunikation}
+    
+    TASK:
+    Gib mir eine 2 Sätze lange, ansprechende Ankündigung ohne Überschrift und Anführungszeichen.
+    `;
+    
+    try {
+      const response = await client.chat.complete({
+        model: "mistral-small-latest",
+        messages: [
+          {
+            role: "system",
+            content: systemContext
+          },
+          {
+            role: "user",
+            // The user only provides the raw data to be processed
+            content: JSON.stringify({ title, text })
+          }
+        ],
+        responseFormat: { type: "text" },
+      });
+      
+      const content = response.choices?.[0]?.message?.content;
+      if (content) {
+        console.log("Success! New Description:", content);
+        text = content; // Override the original text with the AI-generated description
+      }
+    } catch (error) {
+      console.error("AI Processing Error:", error);
+    }
+    
     ensureFile();
 
     const announcements = JSON.parse(fs.readFileSync(filePath, "utf8"));
@@ -49,7 +97,7 @@ export async function POST(req: Request) {
       text,
       date,
       author: session.user?.name || "Unknown",
-      importance: !!importance
+      importance: !!importance,
     };
 
     announcements.push(newEntry);
