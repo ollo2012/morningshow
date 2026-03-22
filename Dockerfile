@@ -39,7 +39,12 @@ FROM base
 
 # Copy built application
 COPY --from=build /app /app
-
+USER root
+RUN cp -r /data/* /data_volume
+RUN chown -R nextjs:nodejs /data_volume
+RUN rm -rf /data
+RUN ln -s /data_volume /data
+USER nextjs
 # Entrypoint sets up the container.
 ENTRYPOINT [ "/app/docker-entrypoint.js" ]
 

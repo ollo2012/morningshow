@@ -13,3 +13,7 @@ primary_region = "ams"
   cpu_kind = "shared"
   cpus = 1
   memory_mb = 512 # Increased to 512MB for stability
+
+[[mounts]]
+  source = "morningshow_data"
+  destination = "/data_volume"
