@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { getServerSession } from "next-auth/next";
 import { authOptions } from "@/lib/auth";
 import { Mistral } from "@mistralai/mistralai";
-import settings from "@/data/settings.json";
+// import settings from "@/data/settings.json";
 import fs from "fs";
 import path from "path";
 
@@ -45,20 +45,32 @@ export async function POST(req: Request) {
     const { title, date, importance } = await req.json();
     // Generate an AI output text
     let text = title; // Initialize with original text in case AI fails
-    // Fetch context from settings.json
-    const settingsObj = Array.isArray(settings) ? settings[0] : settings;
-    const interneKommunikation = settingsObj.interne_kommunikation || "";
-    const unternehmensprofil = settingsObj.unternehmensprofil || "";
-    
+    // Fetch context from current selected profile
+    const currentProfilePath = path.join(process.cwd(), "data/settings_current.json");
+    const profilesPath = path.join(process.cwd(), "data/settings_profiles.json");
+    let interneKommunikation = "";
+    let unternehmensprofil = "";
+    try {
+      const { currentProfileId } = JSON.parse(fs.readFileSync(currentProfilePath, "utf8"));
+      const profiles = JSON.parse(fs.readFileSync(profilesPath, "utf8"));
+      const profile = profiles.find((p: any) => p.id === currentProfileId);
+      if (profile) {
+        interneKommunikation = profile.interneKommunikation || "";
+        unternehmensprofil = profile.unternehmensprofil || "";
+      }
+    } catch (e) {
+      console.error("Profile context error", e);
+    }
+
     const systemContext = `
-    Du willst eine 2 Sätze lange Ankündigung für unseren internen Kommunikationskanal erstellen.
-    Berücksichtige dabei immer, dass wir ggf. auch die Kunden informieren.
-    Du hast folgende Unternehmensrichtlinen zu beachten:
-    - Firmenprofil: ${unternehmensprofil}
-    - Interner Kommunikationsstil: ${interneKommunikation}
-    
-    TASK:
-    Gib mir eine 2 Sätze lange, ansprechende Ankündigung ohne Überschrift und Anführungszeichen.
+      Du willst eine 2 Sätze lange Ankündigung für unseren internen Kommunikationskanal erstellen.
+      Berücksichtige dabei immer, dass wir ggf. auch die Kunden informieren.
+      Du hast folgende Unternehmensrichtlinen zu beachten:
+      - Firmenprofil: ${unternehmensprofil}
+      - Interner Kommunikationsstil: ${interneKommunikation}
+
+      TASK:
+      Gib mir eine 2 Sätze lange, ansprechende Ankündigung ohne Überschrift und Anführungszeichen.
     `;
     
     try {

@@ -10,6 +10,7 @@ export function AdminNav() {
   const navItems = [
     { name: "Announcements", href: "/admin/announcements" },
     { name: "Products", href: "/admin/products" },
+    { name: "Settings", href: "/admin/settings" },
   ];
 
   return (
