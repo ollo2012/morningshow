@@ -16,4 +16,4 @@ primary_region = "ams"
 
 [[mounts]]
   source = "morningshow_data"
-  destination = "/data_volume"
+  destination = "/data/volume"

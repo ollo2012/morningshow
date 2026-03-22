@@ -2,8 +2,8 @@ import { NextResponse } from "next/server";
 import fs from "fs";
 import path from "path";
 
-const filePath = path.join(process.cwd(), "data/settings_profiles.json");
-const currentProfilePath = path.join(process.cwd(), "data/settings_current.json");
+const filePath = path.join(process.cwd(), "data/volume/settings_profiles.json");
+const currentProfilePath = path.join(process.cwd(), "data/volume/settings_current.json");
 
 const ensureFiles = () => {
   const dir = path.dirname(filePath);
