@@ -43,6 +43,7 @@ next-env.d.ts
 # Project specific data
 /data/*
 !/data/baeckereien/
+!/data/auth.json
 
 .idea
 workspace.xml
