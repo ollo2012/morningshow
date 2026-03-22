@@ -38,7 +38,7 @@ export async function POST(req: Request) {
   }
 
   try {
-    const { title, text, date } = await req.json();
+    const { title, text, date, importance } = await req.json();
     ensureFile();
 
     const announcements = JSON.parse(fs.readFileSync(filePath, "utf8"));
@@ -48,7 +48,8 @@ export async function POST(req: Request) {
       title,
       text,
       date,
-      author: session.user?.name || "Unknown"
+      author: session.user?.name || "Unknown",
+      importance: !!importance
     };
 
     announcements.push(newEntry);

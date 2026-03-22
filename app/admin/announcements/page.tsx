@@ -10,6 +10,7 @@ interface Announcement {
   text: string;
   date: string;
   author: string;
+  importance: boolean;
 }
 
 export default function AnnouncementsPage() {
@@ -20,6 +21,7 @@ export default function AnnouncementsPage() {
   const [title, setTitle] = useState("");
   const [text, setText] = useState("");
   const [loading, setLoading] = useState(false);
+  const [importance, setImportance] = useState(false);
   const [deletingId, setDeletingId] = useState<string | null>(null); // Status für das Löschen
 
   useEffect(() => {
@@ -48,6 +50,7 @@ export default function AnnouncementsPage() {
         title,
         text,
         date: new Date().toLocaleDateString(),
+        importance,
       }),
     });
 
@@ -110,6 +113,15 @@ export default function AnnouncementsPage() {
               value={text}
               onChange={(e) => setText(e.target.value)}
             />
+            <label className="flex items-center gap-2">
+              <input
+                type="checkbox"
+                checked={importance}
+                onChange={(e) => setImportance(e.target.checked)}
+                className="accent-black dark:accent-zinc-50"
+              />
+              Wichtig
+            </label>
             <button
               type="submit"
               disabled={loading}
@@ -128,10 +140,14 @@ export default function AnnouncementsPage() {
             announcements.slice().reverse().map((item) => (
               <div key={item.id} className="group relative p-6 bg-white dark:bg-zinc-900 rounded-xl border border-zinc-200 dark:border-zinc-800">
                 <div className="flex justify-between items-start mb-2">
-                  <h3 className="text-lg font-bold text-zinc-900 dark:text-zinc-50">{item.title}</h3>
+                  <h3 className="text-lg font-bold text-zinc-900 dark:text-zinc-50 flex items-center gap-2">
+                    {item.title}
+                    {item.importance && (
+                      <span className="ml-2 px-2 py-0.5 rounded bg-red-500 text-white text-xs font-semibold">Wichtig</span>
+                    )}
+                  </h3>
                   <div className="flex items-center gap-4">
                     <span className="text-sm text-zinc-500">{item.date}</span>
-                    
                     <button 
                       onClick={() => handleDelete(item.id)}
                       disabled={deletingId === item.id}
